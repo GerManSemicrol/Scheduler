@@ -11,30 +11,37 @@ namespace Negocio.Managament
     public class Programador
     {
         public SalidaDTO Calcular(EntradaDTO entrada)
-        {            
-            SalidaDTO datosSalida = new SalidaDTO();            
-
-            datosSalida.Tipo = ComprobarTipo(entrada.TiposCalculos);
-            if(datosSalida.Tipo == TiposCalculos.Una_vez)
+        {
+            return CalcularSoloUnaVez(entrada) ?? CalcularRecurrente(entrada);
+        }
+                
+        private SalidaDTO CalcularRecurrente(EntradaDTO entrada)
+        {
+            if(entrada.TiposCalculos != TiposCalculos.Recurrente)
             {
-                datosSalida.FechaEjecucion = entrada.FechaRepeticion;
-                datosSalida.Descripcion = $"Ocurre una vez. El programador se utilizará el {datosSalida.FechaEjecucion.ToString(("dd/MM/yyyy"))} a las " +
-                    $"{datosSalida.FechaEjecucion.ToString(("HH:mm"))}";
+                return null;
             }
-            else if(datosSalida.Tipo == TiposCalculos.Recurrente)
+            return new SalidaDTO()
             {
-                datosSalida.FechaEjecucion = RepeticionRecurrente(entrada.FechaActual,entrada.Ocurrencia);
-                datosSalida.Descripcion = $"Ocurre diariamente. El programador se utilizará el {datosSalida.FechaEjecucion.ToString(("dd/MM/yyyy"))}";
-
-            }
-
-            return datosSalida;
+                Tipo = entrada.TiposCalculos,
+                FechaEjecucion = RepeticionRecurrente(entrada.FechaActual, entrada.Ocurrencia),
+                Descripcion = ObtenerDescripcion(RepeticionRecurrente(entrada.FechaActual, entrada.Ocurrencia), entrada.TiposCalculos)
+            };
         }
 
-        public TiposCalculos ComprobarTipo(TiposCalculos tipo)
-        {                
-            return tipo;
-        }
+        private SalidaDTO CalcularSoloUnaVez(EntradaDTO entrada)
+        {
+            if (entrada.TiposCalculos != TiposCalculos.Una_vez)
+            {
+                return null;
+            }
+            return new SalidaDTO()
+            {
+                Tipo = entrada.TiposCalculos,
+                FechaEjecucion = entrada.FechaRepeticion,
+                Descripcion = ObtenerDescripcion(entrada.FechaRepeticion, entrada.TiposCalculos)
+            };
+        }      
 
         public DateTime RepeticionRecurrente (DateTime fecha, OcurrenciaCalculos ocurrencia)
         {
@@ -57,11 +64,18 @@ namespace Negocio.Managament
             return fechaRepeticion;
         }
 
-
-
-
-
-
-
+        private string ObtenerDescripcion(DateTime fecha, TiposCalculos tipo)
+        {
+            if(tipo == TiposCalculos.Una_vez)
+            {
+                return $"Ocurre una vez. El programador se utilizará el {fecha.ToString(("dd/MM/yyyy"))} a las " +
+                    $"{fecha.ToString(("HH:mm"))}";
+            }
+            else if(tipo == TiposCalculos.Recurrente)
+            {
+                return $"Ocurre diariamente. El programador se utilizará el {fecha.ToString(("dd/MM/yyyy"))}";
+            }
+            return null;
+        }
     }
 }

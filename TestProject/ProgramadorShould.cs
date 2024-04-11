@@ -6,40 +6,7 @@ using Xunit;
 namespace TestProject
 {
     public class ProgramadorShould
-    {
-        //[Fact]
-        //public void Comprobar_Tipo_Correcto()
-        //{
-        //    //Arrange
-        //    var programador = new Programador();
-        //    var entrada = new EntradaDTO
-        //    {
-        //        TiposCalculos = TiposCalculos.Una_vez
-        //    };
-        //    var tipoSalidaEsperada = TiposCalculos.Una_vez;
-
-        //    //Act  
-        //    var resultado = programador.Calcular(entrada);
-
-        //    //Assert
-        //    Assert.Equal(tipoSalidaEsperada,resultado.Tipo);
-        //}
-
-        [Theory]
-        [InlineData (TiposCalculos.Una_vez, TiposCalculos.Una_vez)]
-        [InlineData (TiposCalculos.Recurrente, TiposCalculos.Recurrente)]
-        public void Comprobar_Tipo_Correcto(TiposCalculos entrada, TiposCalculos salida)
-        {
-            //Arrenge
-            var programador = new Programador();
-            
-            //Act
-            var resultado = programador.ComprobarTipo(entrada);
-
-            //Assert
-            Assert.Equal(salida, resultado);
-        }
-
+    {       
         //[Fact]
         //public void Comprobar_Fecha_Repeticion_Recurrente_Correcta_Diaria()
         //{
