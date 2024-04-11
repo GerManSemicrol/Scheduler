@@ -43,7 +43,7 @@ namespace Negocio.Managament
             };
         }      
 
-        public DateTime RepeticionRecurrente (DateTime fecha, OcurrenciaCalculos ocurrencia)
+        private DateTime RepeticionRecurrente (DateTime fecha, OcurrenciaCalculos ocurrencia)
         {
             DateTime fechaRepeticion= new DateTime();
 

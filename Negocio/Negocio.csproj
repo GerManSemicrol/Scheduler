@@ -45,7 +45,6 @@
     <Compile Include="EntitiesDTO\SalidaDTO.cs" />
     <Compile Include="Enums\OcurrenciaCalculos.cs" />
     <Compile Include="Enums\TiposCalculos.cs" />
-    <Compile Include="Managament\Managament.cs" />
     <Compile Include="Managament\Programador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
