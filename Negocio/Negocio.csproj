@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculos\CalculosOnce.cs" />
+    <Compile Include="Calculos\CalculosRecurring.cs" />
     <Compile Include="EntitiesDTO\EntradaDTO.cs" />
+    <Compile Include="EntitiesDTO\FrecuenciaDiariaDTO.cs" />
     <Compile Include="EntitiesDTO\SalidaDTO.cs" />
     <Compile Include="Enums\OcurrenciaCalculos.cs" />
     <Compile Include="Enums\TiposCalculos.cs" />
