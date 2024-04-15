@@ -35,7 +35,6 @@ namespace Negocio.Calculos
             {
                 fechaRepeticion = entrada.FechaActual.AddDays(7);
             }
-
             else if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
             {
                 fechaRepeticion = entrada.FechaActual.AddDays(15);
@@ -52,17 +51,16 @@ namespace Negocio.Calculos
             }
             if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Recurrente)
             {
-
                 if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
                 {
                     return $"Ocurre semanalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
                         $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin} cada {entrada.FrecuenciaDiaria.TiempoRepeticion}";
                 }
-                else if(entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
+                else if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
                 {
                     return $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
                         $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}";
-                }                
+                }
             }
             return null;
         }

@@ -7,7 +7,7 @@ using Xunit;
 namespace TestProject
 {
     public class ProgramadorShould
-    {       
+    {
         //[Fact]
         //public void Comprobar_Fecha_Repeticion_Recurrente_Correcta_Diaria()
         //{
@@ -62,7 +62,7 @@ namespace TestProject
                 Descripcion = $"Ocurre una vez. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} a las " +
                     $"{entrada.FechaRepeticion.ToString(("HH:mm"))}",
                 Tipo = TiposCalculos.Una_vez
-                
+
             };
 
             //Act
@@ -181,6 +181,6 @@ namespace TestProject
             Assert.Equal(salida.FechaEjecucion, salidaResultado.FechaEjecucion);
             Assert.Equal(salida.Tipo, salidaResultado.Tipo);
             Assert.Equal(salida.Descripcion, salidaResultado.Descripcion);
-        }                
+        }
     }
 }
