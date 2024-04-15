@@ -52,7 +52,7 @@ namespace Negocio.Calculos
             if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Recurrente)
             {
                 if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
-                {
+                {                    
                     return $"Ocurre semanalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
                         $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin} cada {entrada.FrecuenciaDiaria.TiempoRepeticion}";
                 }
