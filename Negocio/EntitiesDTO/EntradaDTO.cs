@@ -16,5 +16,6 @@ namespace Negocio.EntitiesDTO
         public int DiasRepeticion { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFinal { get; set; }
+        public FrecuenciaDiariaDTO FrecuenciaDiaria { get; set; }
     }
 }

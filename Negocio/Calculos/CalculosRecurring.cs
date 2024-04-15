@@ -10,7 +10,7 @@ namespace Negocio.Calculos
 {
     public class CalculosRecurring
     {
-        public SalidaDTO CalcularRecurrente(EntradaDTO entrada, FrecuenciaDiariaDTO frecuencia)
+        public SalidaDTO CalcularRecurrente(EntradaDTO entrada)
         {
             if (entrada.TiposCalculos != TiposCalculos.Recurrente)
             {
@@ -19,26 +19,26 @@ namespace Negocio.Calculos
             return new SalidaDTO()
             {
                 Tipo = entrada.TiposCalculos,
-                FechaEjecucion = RepeticionRecurrente(entrada.FechaActual, entrada.Ocurrencia),
-                Descripcion = ObtenerDescripcion(RepeticionRecurrente(entrada.FechaActual, entrada.Ocurrencia), entrada.TiposCalculos)
+                FechaEjecucion = FechaRepeticionRecurrente(entrada),
+                Descripcion = ObtenerDescripcion(FechaRepeticionRecurrente(entrada), entrada.TiposCalculos)
             };
         }
-        private DateTime RepeticionRecurrente(DateTime fecha, OcurrenciaCalculos ocurrencia)
+        private DateTime FechaRepeticionRecurrente(EntradaDTO entrada)
         {
             DateTime fechaRepeticion = new DateTime();
 
-            if (ocurrencia == OcurrenciaCalculos.Diaria)
+            if (entrada.Ocurrencia == OcurrenciaCalculos.Diaria)
             {
-                fechaRepeticion = fecha.AddDays(1);
+                fechaRepeticion = entrada.FechaActual.AddDays(entrada.DiasRepeticion);
             }
-            else if (ocurrencia == OcurrenciaCalculos.Semanal)
+            else if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
             {
-                fechaRepeticion = fecha.AddDays(7);
+                fechaRepeticion = entrada.FechaActual.AddDays(7);
             }
 
-            else if (ocurrencia == OcurrenciaCalculos.Quincenal)
+            else if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
             {
-                fechaRepeticion = fecha.AddDays(15);
+                fechaRepeticion = entrada.FechaActual.AddDays(15);
             }
 
             return fechaRepeticion;
@@ -48,5 +48,7 @@ namespace Negocio.Calculos
         {            
                 return $"Ocurre diariamente. El programador se utilizará el {fecha.ToString(("dd/MM/yyyy"))}";            
         }
+
+
     }
 }

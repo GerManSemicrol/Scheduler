@@ -14,7 +14,7 @@ namespace Negocio.EntitiesDTO
         public int Minutos { get; set; }
         public int Segundos { get; set; }
         public DateTime HoraInicio { get; set; }
-        public DateTime HoraFin { get; set; }   
-
+        public DateTime HoraFin { get; set; }
+        public int TiempoRepeticion { get; set; }
     }
 }
