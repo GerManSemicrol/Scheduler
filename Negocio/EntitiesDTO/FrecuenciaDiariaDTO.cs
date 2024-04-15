@@ -9,7 +9,7 @@ namespace Negocio.EntitiesDTO
 {
     public class FrecuenciaDiariaDTO
     {
-        public TiposCalculos TiposCalculos { get; set; }
+        public TiposCalculos TipoFrecuenciaDiaria { get; set; }
         public int Horas { get; set; }
         public int Minutos { get; set; }
         public int Segundos { get; set; }

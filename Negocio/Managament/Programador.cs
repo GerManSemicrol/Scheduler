@@ -15,9 +15,9 @@ namespace Negocio.Managament
     {
         private CalculosOnce calculadorOnce = new CalculosOnce();
         private CalculosRecurring calculadorRecurring = new CalculosRecurring();
-        public SalidaDTO Calcular(EntradaDTO entrada)
+        public SalidaDTO Calcular(EntradaDTO entrada, FrecuenciaDiariaDTO frecuencia)
         {            
-            return calculadorOnce.CalcularSoloUnaVez(entrada) ?? calculadorRecurring.CalcularRecurrente(entrada);
+            return calculadorOnce.CalcularSoloUnaVez(entrada) ?? calculadorRecurring.CalcularRecurrente(entrada, frecuencia);
         }               
     }
 }

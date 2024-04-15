@@ -10,7 +10,7 @@ namespace Negocio.Calculos
 {
     public class CalculosRecurring
     {
-        public SalidaDTO CalcularRecurrente(EntradaDTO entrada)
+        public SalidaDTO CalcularRecurrente(EntradaDTO entrada, FrecuenciaDiariaDTO frecuencia)
         {
             if (entrada.TiposCalculos != TiposCalculos.Recurrente)
             {
