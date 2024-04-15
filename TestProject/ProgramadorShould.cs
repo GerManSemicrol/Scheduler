@@ -1,4 +1,5 @@
-﻿using Negocio.EntitiesDTO;
+﻿using Negocio.Calculos;
+using Negocio.EntitiesDTO;
 using Negocio.Enums;
 using Negocio.Managament;
 using Xunit;
@@ -79,18 +80,21 @@ namespace TestProject
             //Arrenge
             var programador = new Programador();
             var fechaActual = DateTime.Now;
+            var frecuenciaDiaria = new FrecuenciaDiariaDTO();
             var entrada = new EntradaDTO
             {
                 FechaActual = fechaActual,
                 TiposCalculos = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Diaria,
-                FechaRepeticion = fechaActual.AddDays(1)
-                
+                DiasRepeticion = 1,
+                FechaRepeticion = fechaActual.AddDays(1),
+                FrecuenciaDiaria = frecuenciaDiaria
+
             };
             var salida = new SalidaDTO
             {
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))}",
+                Descripcion = $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}",
                 Tipo = TiposCalculos.Recurrente
 
             };
@@ -110,18 +114,25 @@ namespace TestProject
             //Arrenge
             var programador = new Programador();
             var fechaActual = DateTime.Now;
+            var frecuenciaDiaria = new FrecuenciaDiariaDTO
+            {
+                TipoFrecuenciaDiaria = TiposCalculos.Recurrente,
+                TiempoRepeticion = 2
+            };
             var entrada = new EntradaDTO
             {
                 FechaActual = fechaActual,
                 TiposCalculos = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Semanal,
-                FechaRepeticion = fechaActual.AddDays(7)
+                FechaRepeticion = fechaActual.AddDays(7),
+                FrecuenciaDiaria = frecuenciaDiaria
 
             };
             var salida = new SalidaDTO
             {
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))}",
+                Descripcion = $"Ocurre semanalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
+                        $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin} cada {entrada.FrecuenciaDiaria.TiempoRepeticion}",
                 Tipo = TiposCalculos.Recurrente
 
             };
@@ -141,18 +152,24 @@ namespace TestProject
             //Arrenge
             var programador = new Programador();
             var fechaActual = DateTime.Now;
+            var frecuenciaDiaria = new FrecuenciaDiariaDTO
+            {
+                TipoFrecuenciaDiaria = TiposCalculos.Recurrente
+            };
             var entrada = new EntradaDTO
             {
                 FechaActual = fechaActual,
                 TiposCalculos = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Quincenal,
-                FechaRepeticion = fechaActual.AddDays(15)
+                FechaRepeticion = fechaActual.AddDays(15),
+                FrecuenciaDiaria = frecuenciaDiaria
 
             };
             var salida = new SalidaDTO
             {
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))}",
+                Descripcion = $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
+                        $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}",
                 Tipo = TiposCalculos.Recurrente
 
             };
@@ -164,6 +181,6 @@ namespace TestProject
             Assert.Equal(salida.FechaEjecucion, salidaResultado.FechaEjecucion);
             Assert.Equal(salida.Tipo, salidaResultado.Tipo);
             Assert.Equal(salida.Descripcion, salidaResultado.Descripcion);
-        }
+        }                
     }
 }

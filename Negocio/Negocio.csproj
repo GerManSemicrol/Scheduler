@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Calculos\CalculosOnce.cs" />
     <Compile Include="Calculos\CalculosRecurring.cs" />
+    <Compile Include="EntitiesDTO\ConfiguracionSemanasDTO.cs" />
     <Compile Include="EntitiesDTO\EntradaDTO.cs" />
     <Compile Include="EntitiesDTO\FrecuenciaDiariaDTO.cs" />
     <Compile Include="EntitiesDTO\SalidaDTO.cs" />
