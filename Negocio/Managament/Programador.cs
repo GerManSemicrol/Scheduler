@@ -13,8 +13,8 @@ namespace Negocio.Managament
 {
     public class Programador
     {
-        private CalculosOnce calculadorOnce = new CalculosOnce();
-        private CalculosRecurring calculadorRecurring = new CalculosRecurring();
+        private CalculosUnaVez calculadorOnce = new CalculosUnaVez();
+        private CalculosRecurrentes calculadorRecurring = new CalculosRecurrentes();
         public SalidaDTO Calcular(EntradaDTO entrada)
         {
             return calculadorOnce.CalcularSoloUnaVez(entrada) ?? calculadorRecurring.CalcularRecurrente(entrada);

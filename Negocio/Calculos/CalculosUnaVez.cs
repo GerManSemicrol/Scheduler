@@ -8,19 +8,19 @@ using Negocio.Enums;
 
 namespace Negocio.Calculos
 {
-    public class CalculosOnce
+    public class CalculosUnaVez
     {
         public SalidaDTO CalcularSoloUnaVez(EntradaDTO entrada)
         {
-            if (entrada.TiposCalculos != TiposCalculos.Una_vez)
+            if (entrada.TipoCalculo != TiposCalculos.Una_vez)
             {
                 return null;
             }
             return new SalidaDTO()
             {
-                Tipo = entrada.TiposCalculos,
+                Tipo = entrada.TipoCalculo,
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = ObtenerDescripcion(entrada.FechaRepeticion, entrada.TiposCalculos)
+                Descripcion = ObtenerDescripcion(entrada.FechaRepeticion, entrada.TipoCalculo)
             };
         }
         private string ObtenerDescripcion(DateTime fecha, TiposCalculos tipo)

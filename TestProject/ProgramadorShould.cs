@@ -53,7 +53,7 @@ namespace TestProject
             var entrada = new EntradaDTO
             {
                 FechaActual = DateTime.Now,
-                TiposCalculos = TiposCalculos.Una_vez,
+                TipoCalculo = TiposCalculos.Una_vez,
                 FechaRepeticion = DateTime.Now.AddDays(2)
             };
             var salida = new SalidaDTO
@@ -84,7 +84,7 @@ namespace TestProject
             var entrada = new EntradaDTO
             {
                 FechaActual = fechaActual,
-                TiposCalculos = TiposCalculos.Recurrente,
+                TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Diaria,
                 DiasRepeticion = 1,
                 FechaRepeticion = fechaActual.AddDays(1),
@@ -122,7 +122,7 @@ namespace TestProject
             var entrada = new EntradaDTO
             {
                 FechaActual = fechaActual,
-                TiposCalculos = TiposCalculos.Recurrente,
+                TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Semanal,
                 FechaRepeticion = fechaActual.AddDays(7),
                 FrecuenciaDiaria = frecuenciaDiaria
@@ -159,7 +159,7 @@ namespace TestProject
             var entrada = new EntradaDTO
             {
                 FechaActual = fechaActual,
-                TiposCalculos = TiposCalculos.Recurrente,
+                TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Quincenal,
                 FechaRepeticion = fechaActual.AddDays(15),
                 FrecuenciaDiaria = frecuenciaDiaria

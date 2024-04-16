@@ -10,7 +10,7 @@ namespace Negocio.EntitiesDTO
     public class EntradaDTO
     {
         public DateTime FechaActual { get; set; }
-        public TiposCalculos TiposCalculos { get; set; }
+        public TiposCalculos TipoCalculo { get; set; }
         public DateTime FechaRepeticion { get; set; }
         public OcurrenciaCalculos Ocurrencia { get; set; }
         public int DiasRepeticion { get; set; }

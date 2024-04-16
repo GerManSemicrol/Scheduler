@@ -8,17 +8,17 @@ using Negocio.Enums;
 
 namespace Negocio.Calculos
 {
-    public class CalculosRecurring
+    public class CalculosRecurrentes
     {
         public SalidaDTO CalcularRecurrente(EntradaDTO entrada)
         {
-            if (entrada.TiposCalculos != TiposCalculos.Recurrente)
+            if (entrada.TipoCalculo != TiposCalculos.Recurrente)
             {
                 return null;
             }
             return new SalidaDTO()
             {
-                Tipo = entrada.TiposCalculos,
+                Tipo = entrada.TipoCalculo,
                 FechaEjecucion = FechaEjecucionRepeticionRecurrente(entrada),                
                 Descripcion = ObtenerDescripcion(entrada)
             };

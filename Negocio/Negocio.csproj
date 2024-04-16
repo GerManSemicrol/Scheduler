@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculos\CalculosOnce.cs" />
-    <Compile Include="Calculos\CalculosRecurring.cs" />
+    <Compile Include="Calculos\CalculosDiarios.cs" />
+    <Compile Include="Calculos\CalculosUnaVez.cs" />
+    <Compile Include="Calculos\CalculosRecurrentes.cs" />
+    <Compile Include="Calculos\CalculosSemanales.cs" />
+    <Compile Include="Calculos\CalculosQuincenales.cs" />
     <Compile Include="EntitiesDTO\ConfiguracionSemanasDTO.cs" />
     <Compile Include="EntitiesDTO\EntradaDTO.cs" />
     <Compile Include="EntitiesDTO\FrecuenciaDiariaDTO.cs" />
