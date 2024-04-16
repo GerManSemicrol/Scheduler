@@ -11,6 +11,6 @@ namespace Negocio.EntitiesDTO
     {
         public DateTime FechaEjecucion { get; set; }
         public string Descripcion { get; set; }
-        public TiposCalculos Tipo { get; set; }
+        public TiposCalculos Tipo { get; set; }        
     }
 }

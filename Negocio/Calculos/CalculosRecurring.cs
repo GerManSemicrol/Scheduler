@@ -19,7 +19,7 @@ namespace Negocio.Calculos
             return new SalidaDTO()
             {
                 Tipo = entrada.TiposCalculos,
-                FechaEjecucion = FechaEjecucionRepeticionRecurrente(entrada),
+                FechaEjecucion = FechaEjecucionRepeticionRecurrente(entrada),                
                 Descripcion = ObtenerDescripcion(entrada)
             };
         }
@@ -63,7 +63,7 @@ namespace Negocio.Calculos
                 }
             }
             return null;
-        }
+        }        
 
         private DateTime HoraSiguienteEjecucion(EntradaDTO entrada)
         {
