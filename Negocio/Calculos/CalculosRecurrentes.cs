@@ -19,7 +19,7 @@ namespace Negocio.Calculos
             return new SalidaDTO()
             {
                 Tipo = entrada.TipoCalculo,
-                FechaEjecucion = FechaEjecucionRepeticionRecurrente(entrada),                
+                FechaEjecucion = FechaEjecucionRepeticionRecurrente(entrada),
                 Descripcion = ObtenerDescripcion(entrada)
             };
         }
@@ -29,7 +29,9 @@ namespace Negocio.Calculos
 
             if (entrada.Ocurrencia == OcurrenciaCalculos.Diaria)
             {
-                fechaRepeticion = entrada.FechaActual.AddDays(entrada.DiasRepeticion);
+                CalculosRecurrentesDiarios calculo = new CalculosRecurrentesDiarios();
+
+                return calculo.calculoFechaEjecucion(entrada);
             }
             else if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
             {
@@ -45,14 +47,16 @@ namespace Negocio.Calculos
 
         private string ObtenerDescripcion(EntradaDTO entrada)
         {
-            if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Una_vez)
+            if (entrada.Ocurrencia == OcurrenciaCalculos.Diaria)
             {
-                return $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
+                CalculosRecurrentesDiarios calculo = new CalculosRecurrentesDiarios();
+
+                return calculo.obtenerDescripcion(entrada);
             }
-            if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Recurrente)
+            else if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Recurrente)
             {
                 if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
-                {                    
+                {
                     return $"Ocurre semanalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
                         $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin} cada {entrada.FrecuenciaDiaria.TiempoRepeticion}";
                 }
@@ -63,7 +67,7 @@ namespace Negocio.Calculos
                 }
             }
             return null;
-        }        
+        }
 
         private DateTime HoraSiguienteEjecucion(EntradaDTO entrada)
         {

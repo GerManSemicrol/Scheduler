@@ -10,6 +10,6 @@ namespace Negocio.EntitiesDTO
     public class ConfiguracionSemanasDTO
     {
         public int NumeroSemanas { get; set; }
-        public bool[] DiasSemana { get; set; } = new bool[7];     
+        public bool[] DiasSemana { get; set; } = new bool[7];
     }
 }

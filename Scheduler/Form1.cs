@@ -42,7 +42,7 @@ namespace Scheduler
 
             datosEntrada.FechaActual = DateTime.Now;
             datosEntrada.TipoCalculo = (TiposCalculos)comboBoxTipo.SelectedIndex;
-            datosEntrada.FechaRepeticion = DateTime.Parse(textBoxFechaOcurrencia.Text);
+            //datosEntrada.FechaRepeticion = DateTime.Parse(textBoxFechaOcurrencia.Text);
 
             SalidaDTO datosSalida= programador.Calcular(datosEntrada);
 
