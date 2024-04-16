@@ -8,7 +8,7 @@ using Negocio.Enums;
 
 namespace Negocio.Calculos
 {
-    public class CalculosSemanales
+    public class CalculosRecurrentesSemanales
     {
 
     }

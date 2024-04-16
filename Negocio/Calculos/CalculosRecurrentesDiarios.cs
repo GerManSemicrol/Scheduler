@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Negocio.Calculos
 {
-    public class CalculosDiarios
+    public class CalculosRecurrentesDiarios
     {
 
     }
