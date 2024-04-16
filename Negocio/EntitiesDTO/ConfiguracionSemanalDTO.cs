@@ -7,7 +7,7 @@ using Negocio.Enums;
 
 namespace Negocio.EntitiesDTO
 {
-    public class ConfiguracionSemanasDTO
+    public class ConfiguracionSemanalDTO
     {
         public int NumeroSemanas { get; set; }
         public bool[] DiasSemana { get; set; } = new bool[7];

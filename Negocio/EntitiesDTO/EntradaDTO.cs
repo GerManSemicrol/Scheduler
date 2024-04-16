@@ -17,6 +17,6 @@ namespace Negocio.EntitiesDTO
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFinal { get; set; }
         public FrecuenciaDiariaDTO FrecuenciaDiaria { get; set; }
-        public ConfiguracionSemanasDTO ConfiguracionSemana { get; set; }
+        public ConfiguracionSemanalDTO ConfiguracionSemana { get; set; }
     }
 }

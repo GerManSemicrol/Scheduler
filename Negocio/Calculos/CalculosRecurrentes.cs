@@ -28,14 +28,12 @@ namespace Negocio.Calculos
             DateTime fechaRepeticion = new DateTime();
 
             if (entrada.Ocurrencia == OcurrenciaCalculos.Diaria)
-            {
-                CalculosRecurrentesDiarios calculo = new CalculosRecurrentesDiarios();
-
-                return calculo.calculoFechaEjecucion(entrada);
+            {  
+                return new CalculosRecurrentesDiarios().calculoFechaEjecucion(entrada);
             }
             else if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
-            {
-                fechaRepeticion = entrada.FechaActual.AddDays(7);
+            {        
+                return new CalculosRecurrentesSemanales().calculoFechaEjecucion(entrada);                
             }
             else if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
             {
@@ -53,19 +51,19 @@ namespace Negocio.Calculos
 
                 return calculo.obtenerDescripcion(entrada);
             }
-            else if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Recurrente)
+            if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
             {
-                if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
-                {
-                    return $"Ocurre semanalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
-                        $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin} cada {entrada.FrecuenciaDiaria.TiempoRepeticion}";
-                }
-                else if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
-                {
-                    return $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
-                        $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}";
-                }
+                CalculosRecurrentesSemanales calculo = new CalculosRecurrentesSemanales();
+
+                return calculo.obtenerDescripcion(entrada);
             }
+
+            if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
+            {
+                return $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
+                    $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}";
+            }
+            
             return null;
         }
 

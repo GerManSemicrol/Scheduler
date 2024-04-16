@@ -46,7 +46,7 @@
     <Compile Include="Calculos\CalculosRecurrentes.cs" />
     <Compile Include="Calculos\CalculosRecurrentesSemanales.cs" />
     <Compile Include="Calculos\CalculosRecurrentesQuincenales.cs" />
-    <Compile Include="EntitiesDTO\ConfiguracionSemanasDTO.cs" />
+    <Compile Include="EntitiesDTO\ConfiguracionSemanalDTO.cs" />
     <Compile Include="EntitiesDTO\EntradaDTO.cs" />
     <Compile Include="EntitiesDTO\FrecuenciaDiariaDTO.cs" />
     <Compile Include="EntitiesDTO\SalidaDTO.cs" />
