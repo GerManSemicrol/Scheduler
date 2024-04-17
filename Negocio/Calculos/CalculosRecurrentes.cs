@@ -16,7 +16,7 @@ namespace Negocio.Calculos
             {
                 Tipo = entrada.TipoCalculo,
                 FechaEjecucion = FechaEjecucionRepeticionRecurrente(entrada),
-                Descripcion = ObtenerDescripcion(entrada)
+                Descripcion = new Descripcion().ObtenerDescripcion(entrada)
             };
         }
         private DateTime FechaEjecucionRepeticionRecurrente(EntradaDTO entrada)
@@ -37,37 +37,6 @@ namespace Negocio.Calculos
             }
 
             return fechaRepeticion;
-        }
-
-        private string ObtenerDescripcion(EntradaDTO entrada)
-        {
-            if (entrada.Ocurrencia == OcurrenciaCalculos.Diaria)
-            {
-                CalculosRecurrentesDiarios calculo = new CalculosRecurrentesDiarios();
-
-                return calculo.ObtenerDescripcion(entrada);
-            }
-            if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
-            {
-                CalculosRecurrentesSemanales calculo = new CalculosRecurrentesSemanales();
-
-                return calculo.ObtenerDescripcion(entrada);
-            }
-
-            if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
-            {
-                return $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
-                    $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}";
-            }
-            
-            return null;
-        }
-
-        private DateTime HoraSiguienteEjecucion(EntradaDTO entrada)
-        {
-            int tiempoAdd = entrada.FrecuenciaDiaria.TiempoRepeticion;
-            return entrada.FrecuenciaDiaria.HoraInicio.AddHours(tiempoAdd);
-        }
-
+        }        
     }
 }

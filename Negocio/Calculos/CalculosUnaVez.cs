@@ -1,5 +1,4 @@
-﻿using System;
-using Negocio.EntitiesDTO;
+﻿using Negocio.EntitiesDTO;
 using Negocio.Enums;
 
 namespace Negocio.Calculos
@@ -16,13 +15,8 @@ namespace Negocio.Calculos
             {
                 Tipo = entrada.TipoCalculo,
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = ObtenerDescripcion(entrada.FechaRepeticion, entrada.TipoCalculo)
+                Descripcion = new Descripcion().ObtenerDescripcion(entrada)
             };
-        }
-        private string ObtenerDescripcion(DateTime fecha, TiposCalculos tipo)
-        {            
-                return $"Ocurre una vez. El programador se utilizará el {fecha.ToString(("dd/MM/yyyy"))} a las " +
-                    $"{fecha.ToString(("HH:mm"))}";            
-        }
+        }        
     }
 }
