@@ -1,8 +1,6 @@
-﻿using Negocio.Calculos;
-using Negocio.EntitiesDTO;
+﻿using Negocio.EntitiesDTO;
 using Negocio.Enums;
 using Negocio.Managament;
-using Xunit;
 
 namespace TestProject
 {
