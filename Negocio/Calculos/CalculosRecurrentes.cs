@@ -29,11 +29,11 @@ namespace Negocio.Calculos
 
             if (entrada.Ocurrencia == OcurrenciaCalculos.Diaria)
             {  
-                return new CalculosRecurrentesDiarios().calculoFechaEjecucion(entrada);
+                return new CalculosRecurrentesDiarios().CalculoFechaEjecucion(entrada);
             }
             else if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
             {        
-                return new CalculosRecurrentesSemanales().calculoFechaEjecucion(entrada);                
+                return new CalculosRecurrentesSemanales().CalculoFechaEjecucion(entrada);                
             }
             else if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
             {
@@ -49,13 +49,13 @@ namespace Negocio.Calculos
             {
                 CalculosRecurrentesDiarios calculo = new CalculosRecurrentesDiarios();
 
-                return calculo.obtenerDescripcion(entrada);
+                return calculo.ObtenerDescripcion(entrada);
             }
             if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
             {
                 CalculosRecurrentesSemanales calculo = new CalculosRecurrentesSemanales();
 
-                return calculo.obtenerDescripcion(entrada);
+                return calculo.ObtenerDescripcion(entrada);
             }
 
             if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
