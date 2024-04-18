@@ -1,7 +1,7 @@
 ﻿
 namespace Negocio.Enums
 {
-    public enum TiposFrecuencia
+    public enum TiposTiempo
     {
         Horas,
         Minutos,

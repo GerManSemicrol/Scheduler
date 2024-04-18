@@ -9,6 +9,6 @@ namespace Negocio.EntitiesDTO
         public DateTime HoraInicio { get; set; }
         public DateTime HoraFin { get; set; }
         public int TiempoRepeticion { get; set; }
-        public TiposFrecuencia TipoFrecuencia { get; set; } 
+        public TiposTiempo TipoFrecuencia { get; set; } 
     }
 }

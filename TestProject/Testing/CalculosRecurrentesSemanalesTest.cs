@@ -85,7 +85,8 @@ namespace TestProject.Testing
             };
             var configuracionSemanal = new ConfiguracionSemanalDTO
             {
-                DiasSemana = new bool[7]
+                DiasSemana = new bool[7],
+                NumeroSemanas = 2
             };
             configuracionSemanal.DiasSemana[1] = true;
 
@@ -96,12 +97,12 @@ namespace TestProject.Testing
                 Ocurrencia = OcurrenciaCalculos.Semanal,
                 FechaRepeticion = new DateTime(2024, 04, 22),
                 FrecuenciaDiaria = frecuenciaDiaria,
-                ConfiguracionSemana = configuracionSemanal
+                ConfiguracionSemana = configuracionSemanal,
             };
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = new DateTime(2024, 04, 22, 15, 0, 0),
-                Descripcion = $"Ocurre semanalmente. El programador se utilizará el 22/04/2024 a las 15:00",
+                Descripcion = $"Ocurre cada 2 semana/s. El programador se utilizará el 22/04/2024 a las 15:00",
                 Tipo = TiposCalculos.Recurrente
 
             };

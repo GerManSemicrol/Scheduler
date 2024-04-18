@@ -47,12 +47,14 @@
     <Compile Include="Calculos\CalculosRecurrentes.cs" />
     <Compile Include="Calculos\CalculosRecurrentesSemanales.cs" />
     <Compile Include="Calculos\Descripcion.cs" />
+    <Compile Include="EntitiesDTO\ConfiguracionMensualDTO.cs" />
     <Compile Include="EntitiesDTO\ConfiguracionSemanalDTO.cs" />
     <Compile Include="EntitiesDTO\EntradaDTO.cs" />
     <Compile Include="EntitiesDTO\FrecuenciaDiariaDTO.cs" />
     <Compile Include="EntitiesDTO\SalidaDTO.cs" />
+    <Compile Include="Enums\FrecuenciaDia.cs" />
     <Compile Include="Enums\OcurrenciaCalculos.cs" />
-    <Compile Include="Enums\TiposFrecuencia.cs" />
+    <Compile Include="Enums\TiposTiempo.cs" />
     <Compile Include="Enums\TiposCalculos.cs" />
     <Compile Include="Managament\Programador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

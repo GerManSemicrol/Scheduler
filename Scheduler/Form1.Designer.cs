@@ -44,11 +44,11 @@
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxOcurrencia = new System.Windows.Forms.ComboBox();
-            this.numericUpDownDias = new System.Windows.Forms.NumericUpDown();
+            this.numericDias = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDownSemanas = new System.Windows.Forms.NumericUpDown();
+            this.numericSemanas = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBoxLunes = new System.Windows.Forms.CheckBox();
             this.checkBoxMartes = new System.Windows.Forms.CheckBox();
@@ -75,9 +75,9 @@
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDias)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSemanas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSemanas)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrecDiariaTiempoRepeticion)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +182,7 @@
             this.panel4.Controls.Add(this.checkBoxMartes);
             this.panel4.Controls.Add(this.checkBoxLunes);
             this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.numericUpDownSemanas);
+            this.panel4.Controls.Add(this.numericSemanas);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(12, 222);
             this.panel4.Name = "panel4";
@@ -241,13 +241,13 @@
             this.comboBoxOcurrencia.Size = new System.Drawing.Size(121, 21);
             this.comboBoxOcurrencia.TabIndex = 6;
             // 
-            // numericUpDownDias
+            // numericDias
             // 
-            this.numericUpDownDias.Location = new System.Drawing.Point(418, 88);
-            this.numericUpDownDias.Name = "numericUpDownDias";
-            this.numericUpDownDias.Size = new System.Drawing.Size(52, 20);
-            this.numericUpDownDias.TabIndex = 7;
-            this.numericUpDownDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericDias.Location = new System.Drawing.Point(418, 88);
+            this.numericDias.Name = "numericDias";
+            this.numericDias.Size = new System.Drawing.Size(52, 20);
+            this.numericDias.TabIndex = 7;
+            this.numericDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -263,7 +263,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.numericUpDownDias);
+            this.panel2.Controls.Add(this.numericDias);
             this.panel2.Controls.Add(this.comboBoxOcurrencia);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.comboBoxTipo);
@@ -284,13 +284,13 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Cada";
             // 
-            // numericUpDownSemanas
+            // numericSemanas
             // 
-            this.numericUpDownSemanas.Location = new System.Drawing.Point(105, 37);
-            this.numericUpDownSemanas.Name = "numericUpDownSemanas";
-            this.numericUpDownSemanas.Size = new System.Drawing.Size(121, 20);
-            this.numericUpDownSemanas.TabIndex = 8;
-            this.numericUpDownSemanas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericSemanas.Location = new System.Drawing.Point(105, 37);
+            this.numericSemanas.Name = "numericSemanas";
+            this.numericSemanas.Size = new System.Drawing.Size(121, 20);
+            this.numericSemanas.TabIndex = 8;
+            this.numericSemanas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -552,10 +552,10 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDias)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSemanas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSemanas)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrecDiariaTiempoRepeticion)).EndInit();
@@ -581,10 +581,10 @@
         private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxOcurrencia;
-        private System.Windows.Forms.NumericUpDown numericUpDownDias;
+        private System.Windows.Forms.NumericUpDown numericDias;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.NumericUpDown numericUpDownSemanas;
+        private System.Windows.Forms.NumericUpDown numericSemanas;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBoxDomingo;
         private System.Windows.Forms.CheckBox checkBoxSabado;

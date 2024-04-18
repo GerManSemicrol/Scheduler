@@ -89,14 +89,18 @@ namespace TestProject.Testing
                     TipoFrecuenciaDiaria = TiposCalculos.Una_vez,
                     HoraInicio = new DateTime(2024,04,18,9,0,0),
                 },
-                FechaRepeticion = new DateTime(2024,04,18)
+                FechaRepeticion = new DateTime(2024,04,18),
+                ConfiguracionSemana = new ConfiguracionSemanalDTO
+                {
+                    NumeroSemanas = 2,
+                }
             };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre semanalmente. El programador se utilizará el 18/04/2024 a las 09:00");           
+            salidaResultado.Should().Be("Ocurre cada 2 semana/s. El programador se utilizará el 18/04/2024 a las 09:00");           
 
         }
 
@@ -116,14 +120,18 @@ namespace TestProject.Testing
                     HoraFin = new DateTime(2024, 04, 18, 20, 0, 0),
                     TiempoRepeticion = 2
                 },
-                FechaRepeticion = new DateTime(2024, 04, 18)
+                FechaRepeticion = new DateTime(2024, 04, 18),
+                ConfiguracionSemana = new ConfiguracionSemanalDTO
+                {
+                    NumeroSemanas = 2,
+                }
             };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre semanalmente. El programador se utilizará el 18/04/2024 desde las 09:00 a las 20:00 cada 2 horas");
+            salidaResultado.Should().Be("Ocurre cada 2 semana/s. El programador se utilizará el 18/04/2024 desde las 09:00 a las 20:00 cada 2 horas");
         }
 
         [Fact]

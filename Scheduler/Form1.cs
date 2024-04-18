@@ -26,7 +26,7 @@ namespace Scheduler
             comboBoxOcurrencia.Items.Add("Quincenal");
             comboBoxOcurrencia.Items.Add("Mensual");
             comboBoxOcurrencia.SelectedIndex = 0;
-            comboBoxFrecDiariaTipoFrecuencia.SelectedIndex = 0;
+            comboBoxFrecDiariaTipoFrecuencia.SelectedIndex = 0;            
         }
 
         private void buttonCalcular_Click(object sender, EventArgs e)
@@ -35,13 +35,23 @@ namespace Scheduler
 
             datosEntrada.FechaActual = DateTime.Now;
             datosEntrada.TipoCalculo = (TiposCalculos)comboBoxTipo.SelectedIndex;
-            if (!textBoxFechaOcurrencia.Text.Equals("")){
+            if(datosEntrada.TipoCalculo == TiposCalculos.Una_vez)
+            {
                 datosEntrada.FechaRepeticion = DateTime.Parse(textBoxFechaOcurrencia.Text);
             }
-            else
+            
+            else if(datosEntrada.TipoCalculo == TiposCalculos.Recurrente)
             {
-                datosEntrada.FechaRepeticion = datosEntrada.FechaActual;
+                datosEntrada.Ocurrencia = (OcurrenciaCalculos)comboBoxOcurrencia.SelectedIndex;
+                if(datosEntrada.Ocurrencia == OcurrenciaCalculos.Diaria)
+                {
+                    datosEntrada.FechaRepeticion = datosEntrada.FechaActual.AddDays((double)numericDias.Value);
+                }               
+                
             }
+
+            
+            
 
             SalidaDTO datosSalida= programador.Calcular(datosEntrada);
 
@@ -54,14 +64,14 @@ namespace Scheduler
             if (comboBoxTipo.SelectedIndex == 0)
             {
                 comboBoxOcurrencia.Enabled = false;
-                numericUpDownDias.Enabled = false;
+                numericDias.Enabled = false;
                 textBoxFechaOcurrencia.Enabled = true;
                 textBoxFechaOcurrencia.Text = "";
             }
             else if (comboBoxTipo.SelectedIndex == 1)
             {
                 comboBoxOcurrencia.Enabled = true;
-                numericUpDownDias.Enabled = true;
+                numericDias.Enabled = true;
                 textBoxFechaOcurrencia.Text = "";
                 textBoxFechaOcurrencia.Enabled = false;
             }
