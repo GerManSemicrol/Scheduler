@@ -3,9 +3,9 @@ using Negocio.EntitiesDTO;
 
 namespace Negocio.Calculos
 {
-    internal class CalculosRecurrentesSemanales
+    public class CalculosRecurrentesSemanales
     {
-        internal DateTime CalculoFechaEjecucion(EntradaDTO entrada)
+        public DateTime CalculoFechaEjecucion(EntradaDTO entrada)
         {
             int diasHastaProximoDiaSeleccionado = 0;
             int diaActual = (int)entrada.FechaActual.DayOfWeek;
@@ -32,7 +32,7 @@ namespace Negocio.Calculos
             return fechaProximoDiaSeleccionado.Date.Add(horaEjecucion.TimeOfDay);
         }
 
-        private DateTime CalculoHoraEjecucion(EntradaDTO entrada)
+        public DateTime CalculoHoraEjecucion(EntradaDTO entrada)
         {
             DateTime horaActual = DateTime.Now;
 

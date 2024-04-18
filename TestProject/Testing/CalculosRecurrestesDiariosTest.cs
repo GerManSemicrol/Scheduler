@@ -1,18 +1,17 @@
-﻿
-
+﻿using FluentAssertions;
+using Negocio.Calculos;
 using Negocio.EntitiesDTO;
 using Negocio.Enums;
-using Negocio.Managament;
 
 namespace TestProject.Testing
 {
     public class CalculosRecurrestesDiariosTest
     {
         [Fact]
-        public void Calcular_Datos_Salida_Correctos_Recurrente_Diaria_Una_Vez()
+        public void Recurrente_OcurrenciaDiaria_UnaVez_DeberiaRetornarSalidaDTOCorrecta()
         {
             //Arrenge
-            var programador = new Programador();
+            var calculadora = new CalculosRecurrentes();
             var fechaActual = new DateTime(2024, 04, 16);
             var frecuenciaDiaria = new FrecuenciaDiariaDTO
             {
@@ -28,7 +27,7 @@ namespace TestProject.Testing
                 FechaRepeticion = fechaActual.AddDays(2),
                 FrecuenciaDiaria = frecuenciaDiaria
             };
-            var salida = new SalidaDTO
+            var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = new DateTime(2024, 04, 18),
                 Descripcion = $"Ocurre diariamente. El programador se utilizará el 18/04/2024 a las 14:00",
@@ -36,19 +35,19 @@ namespace TestProject.Testing
             };
 
             //Act
-            var salidaResultado = programador.Calcular(entrada);
+            var salidaResultado = calculadora.CalcularRecurrente(entrada);
 
             //Assert            
-            Assert.Equal(salida.FechaEjecucion, salidaResultado.FechaEjecucion);
-            Assert.Equal(salida.Tipo, salidaResultado.Tipo);
-            Assert.Equal(salida.Descripcion, salidaResultado.Descripcion);
+            salidaResultado.Tipo.Should().Be(salidaEsperada.Tipo);
+            salidaResultado.FechaEjecucion.Should().Be(salidaEsperada.FechaEjecucion);
+            salidaResultado.Descripcion.Should().Be(salidaEsperada.Descripcion);
         }
 
         [Fact]
-        public void Calcular_Datos_Salida_Correctos_Recurrente_Diaria_Varias_Horas()
+        public void Recurrente_OcurrenciaDiario_VariasHoras_DeberiaRetornarSalidaDTOCorrecta()
         {
             //Arrenge
-            var programador = new Programador();
+            var calculadora = new CalculosRecurrentes();
             var fechaActual = new DateTime(2024, 04, 16);
             var frecuenciaDiaria = new FrecuenciaDiariaDTO
             {
@@ -75,7 +74,7 @@ namespace TestProject.Testing
             };
 
             //Act
-            var salidaResultado = programador.Calcular(entrada);
+            var salidaResultado = calculadora.CalcularRecurrente(entrada);
 
             //Assert            
             Assert.Equal(salida.FechaEjecucion, salidaResultado.FechaEjecucion);

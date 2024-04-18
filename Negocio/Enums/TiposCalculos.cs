@@ -1,6 +1,4 @@
-﻿
-
-namespace Negocio.Enums
+﻿namespace Negocio.Enums
 {
     public enum TiposCalculos
     {
