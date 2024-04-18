@@ -8,7 +8,7 @@ namespace TestProject.Testing
     public class CalculosRecurrentesTest
     {
         [Fact]
-        public void CalcularRecurrente_TipoNoRecurrente_DeberiaRetornarNull()
+        public void TipoNoRecurrente_DeberiaRetornarNull()
         {
             // Arrange
             var calculadora = new CalculosRecurrentes();
@@ -24,7 +24,7 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().BeNull();
-        }        
+        }            
 
     }
 }
