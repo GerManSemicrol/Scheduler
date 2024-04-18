@@ -26,7 +26,7 @@ namespace Scheduler
             comboBoxOcurrencia.Items.Add("Quincenal");
             comboBoxOcurrencia.Items.Add("Mensual");
             comboBoxOcurrencia.SelectedIndex = 0;
-
+            comboBoxFrecDiariaTipoFrecuencia.SelectedIndex = 0;
         }
 
         private void buttonCalcular_Click(object sender, EventArgs e)
@@ -35,13 +35,18 @@ namespace Scheduler
 
             datosEntrada.FechaActual = DateTime.Now;
             datosEntrada.TipoCalculo = (TiposCalculos)comboBoxTipo.SelectedIndex;
-            datosEntrada.FechaRepeticion = DateTime.Parse(textBoxFechaOcurrencia.Text);
+            if (!textBoxFechaOcurrencia.Text.Equals("")){
+                datosEntrada.FechaRepeticion = DateTime.Parse(textBoxFechaOcurrencia.Text);
+            }
+            else
+            {
+                datosEntrada.FechaRepeticion = datosEntrada.FechaActual;
+            }
 
             SalidaDTO datosSalida= programador.Calcular(datosEntrada);
 
             labelProximaEjecucion.Text = datosSalida.FechaEjecucion.ToString("dd/MM/yyyy HH:mm");
             labelDescripcion.Text = datosSalida.Descripcion.ToString();
-
         }
 
         private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)

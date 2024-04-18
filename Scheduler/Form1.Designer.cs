@@ -66,7 +66,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePickerHoraFinal = new System.Windows.Forms.DateTimePicker();
             this.numericUpDownFrecDiariaTiempoRepeticion = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxFrecDiariaTipoTiempo = new System.Windows.Forms.ComboBox();
+            this.comboBoxFrecDiariaTipoFrecuencia = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -80,18 +85,19 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonCalcular);
             this.panel1.Controls.Add(this.textBoxFechaActual);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(566, 67);
+            this.panel1.Size = new System.Drawing.Size(566, 73);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 27);
+            this.label1.Location = new System.Drawing.Point(26, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 2;
@@ -99,7 +105,7 @@
             // 
             // buttonCalcular
             // 
-            this.buttonCalcular.Location = new System.Drawing.Point(318, 22);
+            this.buttonCalcular.Location = new System.Drawing.Point(310, 37);
             this.buttonCalcular.Name = "buttonCalcular";
             this.buttonCalcular.Size = new System.Drawing.Size(178, 23);
             this.buttonCalcular.TabIndex = 1;
@@ -110,7 +116,7 @@
             // textBoxFechaActual
             // 
             this.textBoxFechaActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFechaActual.Location = new System.Drawing.Point(109, 22);
+            this.textBoxFechaActual.Location = new System.Drawing.Point(101, 37);
             this.textBoxFechaActual.Name = "textBoxFechaActual";
             this.textBoxFechaActual.Size = new System.Drawing.Size(160, 20);
             this.textBoxFechaActual.TabIndex = 0;
@@ -118,19 +124,20 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.labelDescripcion);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.labelProximaEjecucion);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(12, 388);
+            this.panel3.Location = new System.Drawing.Point(12, 440);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(566, 151);
+            this.panel3.Size = new System.Drawing.Size(566, 163);
             this.panel3.TabIndex = 2;
             // 
             // labelDescripcion
             // 
             this.labelDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelDescripcion.Location = new System.Drawing.Point(36, 71);
+            this.labelDescripcion.Location = new System.Drawing.Point(37, 96);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(484, 62);
             this.labelDescripcion.TabIndex = 4;
@@ -139,7 +146,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 44);
+            this.label6.Location = new System.Drawing.Point(36, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 2;
@@ -148,7 +155,7 @@
             // labelProximaEjecucion
             // 
             this.labelProximaEjecucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.labelProximaEjecucion.Location = new System.Drawing.Point(151, 10);
+            this.labelProximaEjecucion.Location = new System.Drawing.Point(152, 35);
             this.labelProximaEjecucion.Name = "labelProximaEjecucion";
             this.labelProximaEjecucion.Size = new System.Drawing.Size(369, 23);
             this.labelProximaEjecucion.TabIndex = 1;
@@ -157,7 +164,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 20);
+            this.label4.Location = new System.Drawing.Point(36, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 0;
@@ -166,6 +173,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.checkBoxDomingo);
             this.panel4.Controls.Add(this.checkBoxSabado);
             this.panel4.Controls.Add(this.checkBoxViernes);
@@ -176,15 +184,15 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.numericUpDownSemanas);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(12, 190);
+            this.panel4.Location = new System.Drawing.Point(12, 222);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(566, 59);
+            this.panel4.Size = new System.Drawing.Size(566, 92);
             this.panel4.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 17);
+            this.label2.Location = new System.Drawing.Point(31, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 0;
@@ -193,7 +201,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 43);
+            this.label3.Location = new System.Drawing.Point(31, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 2;
@@ -202,7 +210,7 @@
             // textBoxFechaOcurrencia
             // 
             this.textBoxFechaOcurrencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFechaOcurrencia.Location = new System.Drawing.Point(105, 41);
+            this.textBoxFechaOcurrencia.Location = new System.Drawing.Point(100, 62);
             this.textBoxFechaOcurrencia.Name = "textBoxFechaOcurrencia";
             this.textBoxFechaOcurrencia.Size = new System.Drawing.Size(252, 20);
             this.textBoxFechaOcurrencia.TabIndex = 3;
@@ -210,7 +218,7 @@
             // comboBoxTipo
             // 
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(105, 14);
+            this.comboBoxTipo.Location = new System.Drawing.Point(100, 35);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTipo.TabIndex = 4;
@@ -219,7 +227,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 70);
+            this.label7.Location = new System.Drawing.Point(31, 91);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 13);
             this.label7.TabIndex = 5;
@@ -228,14 +236,14 @@
             // comboBoxOcurrencia
             // 
             this.comboBoxOcurrencia.FormattingEnabled = true;
-            this.comboBoxOcurrencia.Location = new System.Drawing.Point(105, 67);
+            this.comboBoxOcurrencia.Location = new System.Drawing.Point(100, 88);
             this.comboBoxOcurrencia.Name = "comboBoxOcurrencia";
             this.comboBoxOcurrencia.Size = new System.Drawing.Size(121, 21);
             this.comboBoxOcurrencia.TabIndex = 6;
             // 
             // numericUpDownDias
             // 
-            this.numericUpDownDias.Location = new System.Drawing.Point(423, 67);
+            this.numericUpDownDias.Location = new System.Drawing.Point(418, 88);
             this.numericUpDownDias.Name = "numericUpDownDias";
             this.numericUpDownDias.Size = new System.Drawing.Size(52, 20);
             this.numericUpDownDias.TabIndex = 7;
@@ -244,7 +252,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(381, 70);
+            this.label8.Location = new System.Drawing.Point(376, 91);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 8;
@@ -253,6 +261,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.numericUpDownDias);
             this.panel2.Controls.Add(this.comboBoxOcurrencia);
@@ -261,15 +270,15 @@
             this.panel2.Controls.Add(this.textBoxFechaOcurrencia);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 86);
+            this.panel2.Location = new System.Drawing.Point(12, 91);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(566, 98);
+            this.panel2.Size = new System.Drawing.Size(566, 125);
             this.panel2.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 6);
+            this.label5.Location = new System.Drawing.Point(36, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 0;
@@ -277,7 +286,7 @@
             // 
             // numericUpDownSemanas
             // 
-            this.numericUpDownSemanas.Location = new System.Drawing.Point(105, 4);
+            this.numericUpDownSemanas.Location = new System.Drawing.Point(105, 37);
             this.numericUpDownSemanas.Name = "numericUpDownSemanas";
             this.numericUpDownSemanas.Size = new System.Drawing.Size(121, 20);
             this.numericUpDownSemanas.TabIndex = 8;
@@ -286,7 +295,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(248, 6);
+            this.label9.Location = new System.Drawing.Point(248, 39);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 9;
@@ -295,7 +304,7 @@
             // checkBoxLunes
             // 
             this.checkBoxLunes.AutoSize = true;
-            this.checkBoxLunes.Location = new System.Drawing.Point(38, 32);
+            this.checkBoxLunes.Location = new System.Drawing.Point(38, 65);
             this.checkBoxLunes.Name = "checkBoxLunes";
             this.checkBoxLunes.Size = new System.Drawing.Size(55, 17);
             this.checkBoxLunes.TabIndex = 10;
@@ -305,7 +314,7 @@
             // checkBoxMartes
             // 
             this.checkBoxMartes.AutoSize = true;
-            this.checkBoxMartes.Location = new System.Drawing.Point(105, 32);
+            this.checkBoxMartes.Location = new System.Drawing.Point(105, 65);
             this.checkBoxMartes.Name = "checkBoxMartes";
             this.checkBoxMartes.Size = new System.Drawing.Size(58, 17);
             this.checkBoxMartes.TabIndex = 11;
@@ -315,7 +324,7 @@
             // checkBoxMiércoles
             // 
             this.checkBoxMiércoles.AutoSize = true;
-            this.checkBoxMiércoles.Location = new System.Drawing.Point(169, 32);
+            this.checkBoxMiércoles.Location = new System.Drawing.Point(169, 65);
             this.checkBoxMiércoles.Name = "checkBoxMiércoles";
             this.checkBoxMiércoles.Size = new System.Drawing.Size(71, 17);
             this.checkBoxMiércoles.TabIndex = 12;
@@ -325,7 +334,7 @@
             // checkBoxJueves
             // 
             this.checkBoxJueves.AutoSize = true;
-            this.checkBoxJueves.Location = new System.Drawing.Point(251, 32);
+            this.checkBoxJueves.Location = new System.Drawing.Point(251, 65);
             this.checkBoxJueves.Name = "checkBoxJueves";
             this.checkBoxJueves.Size = new System.Drawing.Size(60, 17);
             this.checkBoxJueves.TabIndex = 13;
@@ -335,7 +344,7 @@
             // checkBoxViernes
             // 
             this.checkBoxViernes.AutoSize = true;
-            this.checkBoxViernes.Location = new System.Drawing.Point(317, 32);
+            this.checkBoxViernes.Location = new System.Drawing.Point(317, 65);
             this.checkBoxViernes.Name = "checkBoxViernes";
             this.checkBoxViernes.Size = new System.Drawing.Size(61, 17);
             this.checkBoxViernes.TabIndex = 14;
@@ -345,7 +354,7 @@
             // checkBoxSabado
             // 
             this.checkBoxSabado.AutoSize = true;
-            this.checkBoxSabado.Location = new System.Drawing.Point(384, 32);
+            this.checkBoxSabado.Location = new System.Drawing.Point(384, 65);
             this.checkBoxSabado.Name = "checkBoxSabado";
             this.checkBoxSabado.Size = new System.Drawing.Size(63, 17);
             this.checkBoxSabado.TabIndex = 15;
@@ -355,7 +364,7 @@
             // checkBoxDomingo
             // 
             this.checkBoxDomingo.AutoSize = true;
-            this.checkBoxDomingo.Location = new System.Drawing.Point(453, 32);
+            this.checkBoxDomingo.Location = new System.Drawing.Point(453, 65);
             this.checkBoxDomingo.Name = "checkBoxDomingo";
             this.checkBoxDomingo.Size = new System.Drawing.Size(68, 17);
             this.checkBoxDomingo.TabIndex = 16;
@@ -365,7 +374,8 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.comboBoxFrecDiariaTipoTiempo);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Controls.Add(this.comboBoxFrecDiariaTipoFrecuencia);
             this.panel5.Controls.Add(this.numericUpDownFrecDiariaTiempoRepeticion);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.dateTimePickerHoraFinal);
@@ -374,15 +384,15 @@
             this.panel5.Controls.Add(this.dateTimePickerUnaVez);
             this.panel5.Controls.Add(this.checkBoxFreDiariaVariasVeces);
             this.panel5.Controls.Add(this.checkBoxFreDiariaUnaVez);
-            this.panel5.Location = new System.Drawing.Point(12, 256);
+            this.panel5.Location = new System.Drawing.Point(12, 320);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(566, 93);
+            this.panel5.Size = new System.Drawing.Size(566, 114);
             this.panel5.TabIndex = 3;
             // 
             // checkBoxFreDiariaUnaVez
             // 
             this.checkBoxFreDiariaUnaVez.AutoSize = true;
-            this.checkBoxFreDiariaUnaVez.Location = new System.Drawing.Point(37, 16);
+            this.checkBoxFreDiariaUnaVez.Location = new System.Drawing.Point(44, 33);
             this.checkBoxFreDiariaUnaVez.Name = "checkBoxFreDiariaUnaVez";
             this.checkBoxFreDiariaUnaVez.Size = new System.Drawing.Size(124, 17);
             this.checkBoxFreDiariaUnaVez.TabIndex = 0;
@@ -392,7 +402,7 @@
             // checkBoxFreDiariaVariasVeces
             // 
             this.checkBoxFreDiariaVariasVeces.AutoSize = true;
-            this.checkBoxFreDiariaVariasVeces.Location = new System.Drawing.Point(37, 39);
+            this.checkBoxFreDiariaVariasVeces.Location = new System.Drawing.Point(44, 56);
             this.checkBoxFreDiariaVariasVeces.Name = "checkBoxFreDiariaVariasVeces";
             this.checkBoxFreDiariaVariasVeces.Size = new System.Drawing.Size(85, 17);
             this.checkBoxFreDiariaVariasVeces.TabIndex = 1;
@@ -402,7 +412,7 @@
             // dateTimePickerUnaVez
             // 
             this.dateTimePickerUnaVez.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerUnaVez.Location = new System.Drawing.Point(237, 13);
+            this.dateTimePickerUnaVez.Location = new System.Drawing.Point(244, 30);
             this.dateTimePickerUnaVez.Name = "dateTimePickerUnaVez";
             this.dateTimePickerUnaVez.ShowUpDown = true;
             this.dateTimePickerUnaVez.Size = new System.Drawing.Size(166, 20);
@@ -412,7 +422,7 @@
             // dateTimePickerHoraInicio
             // 
             this.dateTimePickerHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHoraInicio.Location = new System.Drawing.Point(114, 62);
+            this.dateTimePickerHoraInicio.Location = new System.Drawing.Point(121, 79);
             this.dateTimePickerHoraInicio.Name = "dateTimePickerHoraInicio";
             this.dateTimePickerHoraInicio.ShowUpDown = true;
             this.dateTimePickerHoraInicio.Size = new System.Drawing.Size(100, 20);
@@ -422,7 +432,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(36, 68);
+            this.label10.Location = new System.Drawing.Point(43, 85);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 4;
@@ -431,7 +441,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(234, 68);
+            this.label11.Location = new System.Drawing.Point(241, 85);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 13);
             this.label11.TabIndex = 6;
@@ -440,7 +450,7 @@
             // dateTimePickerHoraFinal
             // 
             this.dateTimePickerHoraFinal.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHoraFinal.Location = new System.Drawing.Point(303, 62);
+            this.dateTimePickerHoraFinal.Location = new System.Drawing.Point(310, 79);
             this.dateTimePickerHoraFinal.Name = "dateTimePickerHoraFinal";
             this.dateTimePickerHoraFinal.ShowUpDown = true;
             this.dateTimePickerHoraFinal.Size = new System.Drawing.Size(100, 20);
@@ -449,29 +459,84 @@
             // 
             // numericUpDownFrecDiariaTiempoRepeticion
             // 
-            this.numericUpDownFrecDiariaTiempoRepeticion.Location = new System.Drawing.Point(237, 38);
+            this.numericUpDownFrecDiariaTiempoRepeticion.Location = new System.Drawing.Point(244, 55);
             this.numericUpDownFrecDiariaTiempoRepeticion.Name = "numericUpDownFrecDiariaTiempoRepeticion";
             this.numericUpDownFrecDiariaTiempoRepeticion.Size = new System.Drawing.Size(59, 20);
             this.numericUpDownFrecDiariaTiempoRepeticion.TabIndex = 8;
             this.numericUpDownFrecDiariaTiempoRepeticion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // comboBoxFrecDiariaTipoTiempo
+            // comboBoxFrecDiariaTipoFrecuencia
             // 
-            this.comboBoxFrecDiariaTipoTiempo.FormattingEnabled = true;
-            this.comboBoxFrecDiariaTipoTiempo.Items.AddRange(new object[] {
+            this.comboBoxFrecDiariaTipoFrecuencia.FormattingEnabled = true;
+            this.comboBoxFrecDiariaTipoFrecuencia.Items.AddRange(new object[] {
             "Horas",
             "Minutos",
             "Segundos"});
-            this.comboBoxFrecDiariaTipoTiempo.Location = new System.Drawing.Point(303, 38);
-            this.comboBoxFrecDiariaTipoTiempo.Name = "comboBoxFrecDiariaTipoTiempo";
-            this.comboBoxFrecDiariaTipoTiempo.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxFrecDiariaTipoTiempo.TabIndex = 9;
+            this.comboBoxFrecDiariaTipoFrecuencia.Location = new System.Drawing.Point(310, 55);
+            this.comboBoxFrecDiariaTipoFrecuencia.Name = "comboBoxFrecDiariaTipoFrecuencia";
+            this.comboBoxFrecDiariaTipoFrecuencia.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxFrecDiariaTipoFrecuencia.TabIndex = 9;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(-1, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(566, 23);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Salida";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(-1, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(566, 23);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Frecuencia Diaria";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(-1, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(566, 23);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Configuración Semanal";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(-1, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(566, 23);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Configuración";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(-1, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(566, 23);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Entrada";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 550);
+            this.ClientSize = new System.Drawing.Size(590, 609);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -537,8 +602,13 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePickerHoraInicio;
         private System.Windows.Forms.DateTimePicker dateTimePickerUnaVez;
-        private System.Windows.Forms.ComboBox comboBoxFrecDiariaTipoTiempo;
+        private System.Windows.Forms.ComboBox comboBoxFrecDiariaTipoFrecuencia;
         private System.Windows.Forms.NumericUpDown numericUpDownFrecDiariaTiempoRepeticion;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
     }
 }
 
