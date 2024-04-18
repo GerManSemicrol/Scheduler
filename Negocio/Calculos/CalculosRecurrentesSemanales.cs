@@ -44,7 +44,7 @@ namespace Negocio.Calculos
             }
             else
             {
-                // Si es anterior, devolver la hora de inicio misma
+                // Si es anterior, devolver la misma hora de inicio 
                 return DateTime.Today.Add(entrada.FrecuenciaDiaria.HoraInicio.TimeOfDay);
             }
         }
