@@ -33,7 +33,7 @@ namespace Negocio.Calculos
                         {
                             return new Descripcion().DescripcionCalculoRecurrenteSemanalVariasVeces(entrada);
                         }
-                    case OcurrenciaCalculos.Quincenal:
+                    case OcurrenciaCalculos.Mensual:
                         return new Descripcion().DescripcionCalculoRecurrenteQuincenal(entrada);
                     default:
                         return null;

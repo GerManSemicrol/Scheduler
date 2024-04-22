@@ -6,8 +6,7 @@ namespace Negocio.Enums
     {
         Nulo,
         Diaria,
-        Semanal,
-        Quincenal,
+        Semanal,        
         Mensual
     }
 }

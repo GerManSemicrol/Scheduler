@@ -1,6 +1,6 @@
 ﻿namespace Negocio.Enums
 {
-    public enum FrecuenciaDia
+    public enum FrecuenciasDia
     {
         Primero,
         Segundo,

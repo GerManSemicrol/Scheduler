@@ -189,39 +189,39 @@ namespace TestProject.Testing
         //    Assert.Equal(salida.Descripcion, salidaResultado.Descripcion);
         //}          
 
-        [Fact]
-        public void Calcular_Datos_Salida_Correctos_Recurrente_Quincenal()
-        {
-            //Arrenge
-            var programador = new Programador();
-            var fechaActual = DateTime.Now;
-            var frecuenciaDiaria = new FrecuenciaDiariaDTO
-            {
-                TipoFrecuenciaDiaria = TiposCalculos.Recurrente
-            };
-            var entrada = new EntradaDTO
-            {
-                FechaActual = fechaActual,
-                TipoCalculo = TiposCalculos.Recurrente,
-                Ocurrencia = OcurrenciaCalculos.Quincenal,
-                FechaRepeticion = fechaActual.AddDays(15),
-                FrecuenciaDiaria = frecuenciaDiaria
-            };
-            var salida = new SalidaDTO
-            {
-                FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
-                        $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}",
-                Tipo = TiposCalculos.Recurrente
-            };
+        //[Fact]
+        //public void Calcular_Datos_Salida_Correctos_Recurrente_Quincenal()
+        //{
+        //    //Arrenge
+        //    var programador = new Programador();
+        //    var fechaActual = DateTime.Now;
+        //    var frecuenciaDiaria = new FrecuenciaDiariaDTO
+        //    {
+        //        TipoFrecuenciaDiaria = TiposCalculos.Recurrente
+        //    };
+        //    var entrada = new EntradaDTO
+        //    {
+        //        FechaActual = fechaActual,
+        //        TipoCalculo = TiposCalculos.Recurrente,
+        //        Ocurrencia = OcurrenciaCalculos.Quincenal,
+        //        FechaRepeticion = fechaActual.AddDays(15),
+        //        FrecuenciaDiaria = frecuenciaDiaria
+        //    };
+        //    var salida = new SalidaDTO
+        //    {
+        //        FechaEjecucion = entrada.FechaRepeticion,
+        //        Descripcion = $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
+        //                $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}",
+        //        Tipo = TiposCalculos.Recurrente
+        //    };
 
-            //Act
-            var salidaResultado = programador.Calcular(entrada);
+        //    //Act
+        //    var salidaResultado = programador.Calcular(entrada);
 
-            //Assert
-            Assert.Equal(salida.FechaEjecucion, salidaResultado.FechaEjecucion);
-            Assert.Equal(salida.Tipo, salidaResultado.Tipo);
-            Assert.Equal(salida.Descripcion, salidaResultado.Descripcion);
-        }
+        //    //Assert
+        //    Assert.Equal(salida.FechaEjecucion, salidaResultado.FechaEjecucion);
+        //    Assert.Equal(salida.Tipo, salidaResultado.Tipo);
+        //    Assert.Equal(salida.Descripcion, salidaResultado.Descripcion);
+        //}
     }
 }

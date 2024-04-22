@@ -25,12 +25,16 @@ namespace TestProject.Testing
                     HoraInicio = new DateTime(2024, 4, 17, 9, 0, 0),
                 }
             };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 22, 9, 0, 0)
+            };
 
             //Act
-            var resultado = calculadora.CalculoFechaEjecucion(entrada);
+            var salidaResultado = calculadora.CalculoFechaEjecucion(entrada);
 
             //Assert
-            resultado.Should().Be(new DateTime(2024, 4, 22, 9, 0, 0));
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
         }
 
         [Fact]

@@ -31,9 +31,9 @@ namespace Negocio.Calculos
             {        
                 return new CalculosRecurrentesSemanales().CalculoFechaEjecucion(entrada);                
             }
-            else if (entrada.Ocurrencia == OcurrenciaCalculos.Quincenal)
+            else if (entrada.Ocurrencia == OcurrenciaCalculos.Mensual)
             {
-                fechaRepeticion = entrada.FechaActual.AddDays(15);
+                return new CalculosRecurrentesMensuales().CalculoFechaEjecucion(entrada);
             }
 
             return fechaRepeticion;
