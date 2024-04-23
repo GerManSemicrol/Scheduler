@@ -22,14 +22,28 @@ namespace Negocio.Calculos
             int diasMesSiguiente = DateTime.DaysInMonth(entrada.FechaActual.Year, entrada.FechaActual.AddMonths(1).Month);
 
             // Comprobar si el día seleccionado es menor o igual al día actual y menor o igual al número de días que tiene el mes siguiente
-            if (entrada.ConfiguracionMensual.DiaMes <= entrada.FechaActual.Day &&
-                entrada.ConfiguracionMensual.DiaMes <= diasMesSiguiente)
+            if (entrada.ConfiguracionMensual.DiaMes <= entrada.FechaActual.Day)
+            {
+                // Se devuelve el mismo día del mes siguiente
+                return ComprobacionDiaSeleccionadoConDiasMesSiguiente(entrada);
+            }
+
+            return ComprobacionDiaSeleccionadoDiasMesActual(entrada);
+        }
+
+        private DateTime ComprobacionDiaSeleccionadoConDiasMesSiguiente(EntradaDTO entrada)
+        {
+            // Obtener la cantidad de días del mes actual
+            int diasMesSiguiente = DateTime.DaysInMonth(entrada.FechaActual.Year, entrada.FechaActual.AddMonths(1).Month);
+
+            // Comprobar si el dia seleccionado es menor o igual al número de días que tiene el mes siguiente
+            if(entrada.ConfiguracionMensual.DiaMes <= diasMesSiguiente)
             {
                 // Se devuelve el mismo día del mes siguiente
                 return new DateTime(entrada.FechaActual.Year, entrada.FechaActual.Month, entrada.ConfiguracionMensual.DiaMes).AddMonths(1);
             }
 
-            return ComprobacionDiaSeleccionadoDiasMesActual(entrada);
+            return new DateTime(entrada.FechaActual.Year, entrada.FechaActual.Month, diasMesSiguiente).AddMonths(1);
         }
 
         private DateTime ComprobacionDiaSeleccionadoDiasMesActual(EntradaDTO entrada)

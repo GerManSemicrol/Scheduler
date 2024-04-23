@@ -13,16 +13,42 @@ namespace TestProject.Testing
             var calculo = new CalculosRecurrentesMensuales();
             var entrada = new EntradaDTO
             {
-                FechaActual = new DateTime(2024, 4, 10),
+                FechaActual = new DateTime(2024, 3, 31),
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { true },
-                    DiaMes = 8
+                    DiaMes = 30
                 }
             };
             var salidaEsperada = new SalidaDTO
             {
-                FechaEjecucion = new DateTime(2024, 5, 8)
+                FechaEjecucion = new DateTime(2024, 4, 30)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void CalculoFechaEjecucion_Recurrente_Mensual_DiaAnterior_FechaActual_Febrero()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 1, 31),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { true },
+                    DiaMes = 30
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 2, 29)
             };
 
             // Act

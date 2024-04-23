@@ -46,7 +46,7 @@ namespace TestProject.Testing
             {
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
                 {
-                    HoraInicio = new DateTime(2024, 4, 18, 20, 0, 0),
+                    HoraInicio = new DateTime(2024, 4, 23, 20, 0, 0),
                 }
             };
 
@@ -54,7 +54,7 @@ namespace TestProject.Testing
             var salidaEsperada = calculo.CalculoHoraEjecucion(entrada);
 
             //Assert
-            salidaEsperada.Should().Be(new DateTime(2024, 4, 18, 20, 0, 0));
+            salidaEsperada.Should().Be(new DateTime(2024, 4, 23, 20, 0, 0));
         }
         [Fact]
         public void Calcular_HoraEjecucion_HoraActualPosterior_HoraDeInicio()
@@ -65,7 +65,7 @@ namespace TestProject.Testing
             {
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
                 {
-                    HoraInicio = new DateTime(2024,4,18,8,0,0)
+                    HoraInicio = new DateTime(2024,4,23,8,0,0)
                 }
             };
 
@@ -73,7 +73,7 @@ namespace TestProject.Testing
             var salidaEsperada = calculo.CalculoHoraEjecucion(entrada);
 
             //Assert
-            salidaEsperada.Should().Be(new DateTime(2024,4,18,8,0,0));
+            salidaEsperada.Should().Be(new DateTime(2024,4,23,8,0,0));
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace TestProject.Testing
         {
             //Arrenge
             var programador = new Programador();
-            var fechaActual = DateTime.Now;
+            var fechaActual = new DateTime(2024, 04, 28);
             var frecuenciaDiaria = new FrecuenciaDiariaDTO
             {
                 TipoFrecuenciaDiaria = TiposCalculos.Una_vez,
@@ -99,14 +99,14 @@ namespace TestProject.Testing
                 FechaActual = fechaActual,
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Semanal,
-                FechaRepeticion = new DateTime(2024, 04, 22),
+                FechaRepeticion = new DateTime(2024, 04, 28),
                 FrecuenciaDiaria = frecuenciaDiaria,
                 ConfiguracionSemana = configuracionSemanal,
             };
             var salidaEsperada = new SalidaDTO
             {
-                FechaEjecucion = new DateTime(2024, 04, 22, 15, 0, 0),
-                Descripcion = $"Ocurre cada 2 semana/s. El programador se utilizará el 22/04/2024 a las 15:00",
+                FechaEjecucion = new DateTime(2024, 04, 29, 15, 0, 0),
+                Descripcion = $"Ocurre cada 2 semana/s. El programador se utilizará el 28/04/2024 a las 15:00",
                 Tipo = TiposCalculos.Recurrente
 
             };
