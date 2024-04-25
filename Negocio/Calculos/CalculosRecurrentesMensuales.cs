@@ -70,27 +70,17 @@ namespace Negocio.Calculos
                 case FrecuenciasDia.Primero:
                     return PrimerDia(entrada);
                 case FrecuenciasDia.Segundo:
-                    return SegundoDia(entrada);
+                    return PrimerDia(entrada).AddDays(7);
                 case FrecuenciasDia.Tercero:
-                    return TercerDia(entrada);
+                    return PrimerDia(entrada).AddDays(14);
                 case FrecuenciasDia.Cuarto:
-                    return CuartoDia(entrada);
+                    return PrimerDia(entrada).AddDays(21);
                 case FrecuenciasDia.Ultimo:
                     return UltimoDia(entrada);
                 default:
                     throw new ArgumentException("Frecuencia no válida.");
             }
-        }
-
-        private DateTime CalculoFechaResultado(DateTime fecha, DayOfWeek dia)
-        {
-            while (fecha.DayOfWeek != dia)
-            {
-                fecha = fecha.AddDays(1);
-            }
-
-            return fecha;
-        }
+        }      
 
         private DateTime PrimerDia(EntradaDTO entrada)
         {
@@ -109,31 +99,29 @@ namespace Negocio.Calculos
             return CalculoFechaResultado(fechaResultado,diaSemanaDeseado);
         }
 
-        private DateTime SegundoDia(EntradaDTO entrada)
-        {
-            return PrimerDia(entrada).AddDays(7);
-        }
-
-        private DateTime TercerDia(EntradaDTO entrada)
-        {
-            return PrimerDia(entrada).AddDays(14);
-        }
-
-        private DateTime CuartoDia(EntradaDTO entrada)
-        {        
-
-            return PrimerDia(entrada).AddDays(21);
-        }
-
         private DateTime UltimoDia(EntradaDTO entrada)
         {
-            return PrimerDia(entrada).AddDays(28);
+            DateTime fechaResultado = PrimerDia(entrada).AddDays(28);
+            DayOfWeek diaSemanaDeseado = DiaSemanaDeseado(entrada.ConfiguracionMensual.DiaSemana);
+
+            while (fechaResultado.Month == fechaResultado.AddDays(7).Month)
+            {
+                fechaResultado = fechaResultado.AddDays(7);
+            }
+
+            return CalculoFechaResultado(fechaResultado, diaSemanaDeseado);
         }
 
-        private DayOfWeek DiaSemanaFechaActual(EntradaDTO entrada)
+        private DateTime CalculoFechaResultado(DateTime fecha, DayOfWeek dia)
         {
-            return entrada.FechaActual.DayOfWeek;
+            while (fecha.DayOfWeek != dia)
+            {
+                fecha = fecha.AddDays(1);
+            }
+
+            return fecha;
         }
+
         private DayOfWeek DiaSemanaDeseado(DiasSemana diaSemana)
         {
             switch (diaSemana)

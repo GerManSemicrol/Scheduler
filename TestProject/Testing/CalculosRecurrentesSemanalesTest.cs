@@ -7,7 +7,7 @@ using Negocio.Managament;
 namespace TestProject.Testing
 {
     public class CalculosRecurrentesSemanalesTest
-    {      
+    {
         [Fact]
         public void CalculoFechaEjecucion_DiaActualMartes_DiaEjecucionProximoMartes()
         {
@@ -46,7 +46,7 @@ namespace TestProject.Testing
             {
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
                 {
-                    HoraInicio = new DateTime(2024, 4, 23, 20, 0, 0),
+                    HoraInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 20, 0, 0),
                 }
             };
 
@@ -54,7 +54,7 @@ namespace TestProject.Testing
             var salidaEsperada = calculo.CalculoHoraEjecucion(entrada);
 
             //Assert
-            salidaEsperada.Should().Be(new DateTime(2024, 4, 23, 20, 0, 0));
+            salidaEsperada.Should().Be(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 20, 0, 0));
         }
         [Fact]
         public void Calcular_HoraEjecucion_HoraActualPosterior_HoraDeInicio()
@@ -65,7 +65,7 @@ namespace TestProject.Testing
             {
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
                 {
-                    HoraInicio = new DateTime(2024,4,23,8,0,0)
+                    HoraInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0)
                 }
             };
 
@@ -73,7 +73,7 @@ namespace TestProject.Testing
             var salidaEsperada = calculo.CalculoHoraEjecucion(entrada);
 
             //Assert
-            salidaEsperada.Should().Be(new DateTime(2024,4,23,8,0,0));
+            salidaEsperada.Should().Be(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0));
         }
 
         [Fact]
@@ -117,7 +117,7 @@ namespace TestProject.Testing
             //Assert
             salidaResultado.Tipo.Should().Be(salidaEsperada.Tipo);
             salidaResultado.Descripcion.Should().Be(salidaEsperada.Descripcion);
-            salidaResultado.FechaEjecucion.Should().Be(salidaEsperada.FechaEjecucion);            
+            salidaResultado.FechaEjecucion.Should().Be(salidaEsperada.FechaEjecucion);
         }
 
         //[Fact]
