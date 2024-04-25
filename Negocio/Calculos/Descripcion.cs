@@ -34,7 +34,7 @@ namespace Negocio.Calculos
                             return new Descripcion().DescripcionCalculoRecurrenteSemanalVariasVeces(entrada);
                         }
                     case OcurrenciaCalculos.Mensual:
-                        return new Descripcion().DescripcionCalculoRecurrenteQuincenal(entrada);
+                        return new Descripcion().DescripcionCalculoRecurrenteMensual(entrada);
                     default:
                         return null;
                 }
@@ -72,9 +72,9 @@ namespace Negocio.Calculos
                                 $" a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
         }
 
-        private string DescripcionCalculoRecurrenteQuincenal(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteMensual(EntradaDTO entrada)
         {
-            return $"Ocurre quincenalmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
+            return $"Ocurre mensualmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
                             $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}";
         }
     }
