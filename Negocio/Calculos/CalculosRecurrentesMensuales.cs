@@ -78,7 +78,7 @@ namespace Negocio.Calculos
                 case FrecuenciasDia.Cuarto:
                     return ComprobarDiaFechaActual(entrada, 3);
                 case FrecuenciasDia.Ultimo:
-                    return ComprobarDiaFechaActual(entrada, 4);
+                    return ComprobarDiaFechaActual(entrada, (ObtenerDiasMesDiaSemanaDeseado(entrada).Count)-1);
                 default:
                     throw new ArgumentException("Frecuencia no válida.");
             }
@@ -89,16 +89,21 @@ namespace Negocio.Calculos
             List<DateTime> dias = ObtenerDiasMesDiaSemanaDeseado(entrada);
 
             // Obtener la fecha actual
-            DateTime fechaActual = entrada.FechaActual;
+            DateTime fechaActual = entrada.FechaActual;            
 
             if (dias[indice] >= fechaActual)
             {
                 return dias[indice];
             }
 
-            // Si no se encontró ninguna fecha posterior a la fecha actual, tomar el primer día del mes siguiente
+            // Si no se encontró ninguna fecha posterior a la fecha actual, se toma el primer día del mes siguiente
             entrada.FechaActual = new DateTime(fechaActual.Year, fechaActual.Month, 1).AddMonths(1);
             dias = ObtenerDiasMesDiaSemanaDeseado(entrada);
+
+            if (entrada.ConfiguracionMensual.FrecuenciaDia == FrecuenciasDia.Ultimo)
+            {
+                indice = dias.Count-1;
+            }
             
             return dias[indice];
         }
@@ -113,30 +118,27 @@ namespace Negocio.Calculos
             // Calcular el día de la semana del primer día del mes
             int primerDiaDeLaSemana = (int)fecha.DayOfWeek;
 
-            DayOfWeek diaSemanaDeseado = DiaSemanaDeseado(entrada.ConfiguracionMensual.DiaSemana);
+            DayOfWeek diaSemanaDeseado = DiaSemanaDeseado(entrada);
 
             // Calcular la diferencia entre el día de la semana deseado y el primer día del mes
             int diferencia = ((int)diaSemanaDeseado - primerDiaDeLaSemana + 7) % 7;
 
             // Calcular el primer día del mes que coincide con el día de la semana especificado
-            DateTime primerDiaBuscado = fecha.AddDays(diferencia);
-
-            // Añadir el primer día a la lista
-            dias.Add(primerDiaBuscado);
+            DateTime primerDiaBuscado = fecha.AddDays(diferencia);                        
 
             // Añadir los siguientes días que coinciden con el día de la semana especificado
             while (primerDiaBuscado.Month == entrada.FechaActual.Month)
             {
-                primerDiaBuscado = primerDiaBuscado.AddDays(7);
                 dias.Add(primerDiaBuscado);
+                primerDiaBuscado = primerDiaBuscado.AddDays(7);                
             }
 
             return dias;
         }
 
-        private DayOfWeek DiaSemanaDeseado(DiasSemana diaSemana)
+        private DayOfWeek DiaSemanaDeseado(EntradaDTO entrada)
         {
-            switch (diaSemana)
+            switch (entrada.ConfiguracionMensual.DiaSemana)
             {
                 case DiasSemana.Lunes: return DayOfWeek.Monday;
                 case DiasSemana.Martes: return DayOfWeek.Tuesday;
@@ -145,9 +147,7 @@ namespace Negocio.Calculos
                 case DiasSemana.Viernes: return DayOfWeek.Friday;
                 case DiasSemana.Sabado: return DayOfWeek.Saturday;
                 case DiasSemana.Domingo: return DayOfWeek.Sunday;
-                case DiasSemana.Dia:
-                    // Generar un valor de día aleatorio
-                    return (DayOfWeek)new Random().Next(0, 7); // Los valores van de 0 a 6 (Monday a Sunday)
+                case DiasSemana.Dia: return entrada.FechaActual.AddDays(1).DayOfWeek; 
                 case DiasSemana.Entre_semana: return DayOfWeek.Monday;
                 case DiasSemana.Fin_de_semana: return DayOfWeek.Saturday;
                 default: throw new ArgumentException("Día de la semana no válido");
