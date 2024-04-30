@@ -8,7 +8,7 @@ namespace TestProject.Testing
     public class CalculosRecurrentesMensualesTest
     {
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo0_DiaAnterior_FechaActual()
+        public void Tipo0_DiaAnterior_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -34,7 +34,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo0_DiaAnterior_FechaActual_Febrero()
+        public void Tipo0_DiaAnterior_FechaActual_Febrero()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -60,7 +60,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo0_DiaPosterior_FechaActual()
+        public void Tipo0_DiaPosterior_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -86,7 +86,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo0_DiaIgual_FechaActual()
+        public void Tipo0_DiaIgual_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -112,7 +112,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo0_Dia31_FechaActual()
+        public void Tipo0_Dia31_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -135,10 +135,10 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
-        }        
+        }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerLunes_FechaActualAnterior()
+        public void Tipo1_PrimerLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -148,7 +148,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Lunes,
                     CantidadMeses = 1
                 }
@@ -166,7 +166,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerLunes_FechaActualPosterior()
+        public void Tipo1_PrimerLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -176,7 +176,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Lunes,
                     CantidadMeses = 1
                 }
@@ -194,7 +194,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoLunes_FechaActualAnterior()
+        public void Tipo1_SegundoLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -222,7 +222,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoLunes_FechaActualPosterior()
+        public void Tipo1_SegundoLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -250,7 +250,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerLunes_FechaActualAnterior()
+        public void Tipo1_TercerLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -260,7 +260,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Lunes,
                     CantidadMeses = 1
                 }
@@ -278,7 +278,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerLunes_FechaActualPosterior()
+        public void Tipo1_TercerLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -288,7 +288,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Lunes,
                     CantidadMeses = 1
                 }
@@ -306,7 +306,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoLunes_FechaActualAnterior()
+        public void Tipo1_CuartoLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -334,7 +334,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoLunes_FechaActualPosterior()
+        public void Tipo1_CuartoLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -359,10 +359,10 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
-        }        
+        }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerMartes_FechaActualAnterior()
+        public void Tipo1_PrimerMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -372,7 +372,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Martes,
                     CantidadMeses = 1
                 }
@@ -390,7 +390,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerMartes_FechaActualPosterior()
+        public void Tipo1_PrimerMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -400,7 +400,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Martes,
                     CantidadMeses = 1
                 }
@@ -418,7 +418,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoMartes_FechaActualAnterior()
+        public void Tipo1_SegundoMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -446,7 +446,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoMartes_FechaActualPosterior()
+        public void Tipo1_SegundoMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -474,7 +474,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerMartes_FechaActualAnterior()
+        public void Tipo1_TercerMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -484,7 +484,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Martes,
                     CantidadMeses = 1
                 }
@@ -502,7 +502,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerMartes_FechaActualPosterior()
+        public void Tipo1_TercerMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -512,7 +512,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Martes,
                     CantidadMeses = 1
                 }
@@ -530,7 +530,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoMartes_FechaActualAnterior()
+        public void Tipo1_CuartoMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -558,7 +558,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoMartes_FechaActualPosterior()
+        public void Tipo1_CuartoMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -586,7 +586,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerMiercoles_FechaActualAnterior()
+        public void Tipo1_PrimerMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -596,7 +596,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Miercoles,
                     CantidadMeses = 1
                 }
@@ -614,7 +614,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerMiercoles_FechaActualPosterior()
+        public void Tipo1_PrimerMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -624,7 +624,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Miercoles,
                     CantidadMeses = 1
                 }
@@ -642,7 +642,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoMiercoles_FechaActualAnterior()
+        public void Tipo1_SegundoMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -670,7 +670,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoMiercoles_FechaActualPosterior()
+        public void Tipo1_SegundoMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -698,7 +698,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerMiercoles_FechaActualAnterior()
+        public void Tipo1_TercerMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -708,7 +708,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Miercoles,
                     CantidadMeses = 1
                 }
@@ -726,7 +726,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerMiercoles_FechaActualPosterior()
+        public void Tipo1_TercerMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -736,7 +736,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Miercoles,
                     CantidadMeses = 1
                 }
@@ -754,7 +754,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoMiercoles_FechaActualAnterior()
+        public void Tipo1_CuartoMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -782,7 +782,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoMiercoles_FechaActualPosterior()
+        public void Tipo1_CuartoMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -808,9 +808,9 @@ namespace TestProject.Testing
             // Assert
             salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
         }
-                
+
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerJueves_FechaActualAnterior()
+        public void Tipo1_PrimerJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -820,7 +820,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Jueves,
                     CantidadMeses = 1
                 }
@@ -838,7 +838,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerJueves_FechaActualPosterior()
+        public void Tipo1_PrimerJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -848,7 +848,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Jueves,
                     CantidadMeses = 1
                 }
@@ -866,7 +866,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoJueves_FechaActualAnterior()
+        public void Tipo1_SegundoJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -894,7 +894,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoJueves_FechaActualPosterior()
+        public void Tipo1_SegundoJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -922,7 +922,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerJueves_FechaActualAnterior()
+        public void Tipo1_TercerJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -932,7 +932,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Jueves,
                     CantidadMeses = 1
                 }
@@ -950,7 +950,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerJueves_FechaActualPosterior()
+        public void Tipo1_TercerJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -960,7 +960,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Jueves,
                     CantidadMeses = 1
                 }
@@ -978,7 +978,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoJueves_FechaActualAnterior()
+        public void Tipo1_CuartoJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1006,7 +1006,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoJueves_FechaActualPosterior()
+        public void Tipo1_CuartoJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1034,7 +1034,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerViernes_FechaActualAnterior()
+        public void Tipo1_PrimerViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1044,7 +1044,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Viernes,
                     CantidadMeses = 1
                 }
@@ -1062,7 +1062,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerViernes_FechaActualPosterior()
+        public void Tipo1_PrimerViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1072,7 +1072,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Viernes,
                     CantidadMeses = 1
                 }
@@ -1090,7 +1090,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoViernes_FechaActualAnterior()
+        public void Tipo1_SegundoViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1118,7 +1118,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoViernes_FechaActualPosterior()
+        public void Tipo1_SegundoViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1146,7 +1146,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerViernes_FechaActualAnterior()
+        public void Tipo1_TercerViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1156,14 +1156,14 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Viernes,
                     CantidadMeses = 1
                 }
             };
             var salidaEsperada = new SalidaDTO
             {
-                FechaEjecucion = new DateTime(2024, 3, 22)
+                FechaEjecucion = new DateTime(2024, 3, 15)
             };
 
             // Act
@@ -1174,7 +1174,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerViernes_FechaActualPosterior()
+        public void Tipo1_TercerViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1184,7 +1184,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Viernes,
                     CantidadMeses = 1
                 }
@@ -1202,7 +1202,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoViernes_FechaActualAnterior()
+        public void Tipo1_CuartoViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1230,7 +1230,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoViernes_FechaActualPosterior()
+        public void Tipo1_CuartoViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1258,7 +1258,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerSabado_FechaActualAnterior()
+        public void Tipo1_PrimerSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1268,7 +1268,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Sabado,
                     CantidadMeses = 1
                 }
@@ -1286,7 +1286,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerSabado_FechaActualPosterior()
+        public void Tipo1_PrimerSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1296,7 +1296,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Sabado,
                     CantidadMeses = 1
                 }
@@ -1314,7 +1314,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoSabado_FechaActualAnterior()
+        public void Tipo1_SegundoSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1342,7 +1342,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoSabado_FechaActualPosterior()
+        public void Tipo1_SegundoSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1370,7 +1370,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerSabado_FechaActualAnterior()
+        public void Tipo1_TercerSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1380,7 +1380,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Sabado,
                     CantidadMeses = 1
                 }
@@ -1398,7 +1398,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerSabado_FechaActualPosterior()
+        public void Tipo1_TercerSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1408,7 +1408,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Sabado,
                     CantidadMeses = 1
                 }
@@ -1426,7 +1426,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoSabado_FechaActualAnterior()
+        public void Tipo1_CuartoSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1454,7 +1454,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoSabado_FechaActualPosterior()
+        public void Tipo1_CuartoSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1482,7 +1482,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerDomingo_FechaActualAnterior()
+        public void Tipo1_PrimerDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1492,7 +1492,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Domingo,
                     CantidadMeses = 1
                 }
@@ -1510,7 +1510,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerDomingo_FechaActualPosterior()
+        public void Tipo1_PrimerDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1520,7 +1520,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Domingo,
                     CantidadMeses = 1
                 }
@@ -1538,7 +1538,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoDomingo_FechaActualAnterior()
+        public void Tipo1_SegundoDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1566,7 +1566,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoDomingo_FechaActualPosterior()
+        public void Tipo1_SegundoDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1594,7 +1594,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerDomingo_FechaActualAnterior()
+        public void Tipo1_TercerDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1604,7 +1604,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Domingo,
                     CantidadMeses = 1
                 }
@@ -1622,7 +1622,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerDomingo_FechaActualPosterior()
+        public void Tipo1_TercerDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1632,8 +1632,8 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
-                    DiaSemana = DiasSemana.Lunes,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
+                    DiaSemana = DiasSemana.Domingo,
                     CantidadMeses = 1
                 }
             };
@@ -1650,7 +1650,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoDomingo_FechaActualAnterior()
+        public void Tipo1_CuartoDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1678,7 +1678,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoDomingo_FechaActualPosterior()
+        public void Tipo1_CuartoDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1706,7 +1706,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerWeekday_FechaActualAnterior()
+        public void Tipo1_PrimerWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1716,7 +1716,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Entre_semana,
                     CantidadMeses = 1
                 }
@@ -1734,7 +1734,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerWeekday_FechaActualPosterior()
+        public void Tipo1_PrimerWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1744,7 +1744,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Entre_semana,
                     CantidadMeses = 1
                 }
@@ -1762,7 +1762,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoWeekday_FechaActualAnterior()
+        public void Tipo1_SegundoWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1790,7 +1790,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoWeekday_FechaActualPosterior()
+        public void Tipo1_SegundoWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1818,7 +1818,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TerceWeekday_FechaActualAnterior()
+        public void Tipo1_TercerWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1828,7 +1828,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Entre_semana,
                     CantidadMeses = 1
                 }
@@ -1846,7 +1846,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerWeekday_FechaActualPosterior()
+        public void Tipo1_TercerWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1856,7 +1856,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Entre_semana,
                     CantidadMeses = 1
                 }
@@ -1874,7 +1874,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoWeekday_FechaActualAnterior()
+        public void Tipo1_CuartoWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1902,7 +1902,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoWeekday_FechaActualPosterior()
+        public void Tipo1_CuartoWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1930,7 +1930,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerWeekend_FechaActualAnterior()
+        public void Tipo1_PrimerWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1940,7 +1940,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Fin_de_semana,
                     CantidadMeses = 1
                 }
@@ -1958,7 +1958,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_PrimerWeekend_FechaActualPosterior()
+        public void Tipo1_PrimerWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1968,7 +1968,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primero,
+                    FrecuenciaDia = FrecuenciasDia.Primer,
                     DiaSemana = DiasSemana.Fin_de_semana,
                     CantidadMeses = 1
                 }
@@ -1986,7 +1986,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoWeekend_FechaActualAnterior()
+        public void Tipo1_SegundoWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2014,7 +2014,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_SegundoWeekend_FechaActualPosterior()
+        public void Tipo1_SegundoWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2042,7 +2042,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerWeekend_FechaActualAnterior()
+        public void Tipo1_TercerWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2052,7 +2052,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Fin_de_semana,
                     CantidadMeses = 1
                 }
@@ -2070,7 +2070,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_TercerWeekend_FechaActualPosterior()
+        public void Tipo1_TercerWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2080,7 +2080,7 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Tercero,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
                     DiaSemana = DiasSemana.Fin_de_semana,
                     CantidadMeses = 1
                 }
@@ -2098,7 +2098,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoWeekend_FechaActualAnterior()
+        public void Tipo1_CuartoWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2126,7 +2126,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void CalculoFechaEjecucion_Recurrente_Mensual_Tipo1_CuartoWeekend_FechaActualPosterior()
+        public void Tipo1_CuartoWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2153,6 +2153,285 @@ namespace TestProject.Testing
             salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
         }
 
-    }    
+        [Fact]
+        public void Tipo1_PrimerDay_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 3),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Primer,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 4)
+            };
 
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_PrimerDay_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Primer,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 1)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_SegundoDay_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Segundo,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 11)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_SegundoDay_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 12),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Segundo,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 8)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_TercerDay_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 18)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_TercerDay_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 19),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 15)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_CuartoDay_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Cuarto,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 25)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_CuartoDay_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 27),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Cuarto,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 22)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_UltimoLunes_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 3),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Ultimo,
+                    DiaSemana = DiasSemana.Lunes,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 25)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_UltimoLunes_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 26),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Ultimo,
+                    DiaSemana = DiasSemana.Lunes,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 29)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+    }
 }

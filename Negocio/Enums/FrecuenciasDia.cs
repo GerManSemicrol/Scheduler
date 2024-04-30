@@ -2,9 +2,9 @@
 {
     public enum FrecuenciasDia
     {
-        Primero,
+        Primer,
         Segundo,
-        Tercero,
+        Tercer,
         Cuarto,
         Ultimo
     }

@@ -34,7 +34,24 @@ namespace Negocio.Calculos
                             return new Descripcion().DescripcionCalculoRecurrenteSemanalVariasVeces(entrada);
                         }
                     case OcurrenciaCalculos.Mensual:
-                        return new Descripcion().DescripcionCalculoRecurrenteMensual(entrada);
+                        if (entrada.ConfiguracionMensual.Tipo[0])
+                        {
+
+                            if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Una_vez)
+                            {
+                                return new Descripcion().DescripcionCalculoRecurrenteMensualUnDiaUnaVez(entrada);
+                            }
+                            return new Descripcion().DescripcionCalculoRecurrenteMensualUnDiaVariasVeces(entrada);
+
+                        }
+                        else
+                        {
+                            if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Una_vez)
+                            {
+                                return new Descripcion().DescripcionCalculoRecurrenteMensualVariosDiasUnaVez(entrada);
+                            }
+                            return new Descripcion().DescripcionCalculoRecurrenteMensualVariosDiasVariasVeces(entrada);
+                        }
                     default:
                         return null;
                 }
@@ -72,10 +89,29 @@ namespace Negocio.Calculos
                                 $" a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
         }
 
-        private string DescripcionCalculoRecurrenteMensual(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteMensualUnDiaUnaVez(EntradaDTO entrada)
         {
-            return $"Ocurre mensualmente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} cada {entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria} horas entre las" +
-                            $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin}";
+            return $"Ocurre el día {entrada.ConfiguracionMensual.DiaMes} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. El programador se utilizará una vez al día a las " +
+                            $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
+        }
+        private string DescripcionCalculoRecurrenteMensualUnDiaVariasVeces(EntradaDTO entrada)
+        {
+            return $"Ocurre el día {entrada.ConfiguracionMensual.DiaMes} cada {entrada.ConfiguracionMensual.CantidadMeses} meses." +
+                $" El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las" +
+                            $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
+        }
+
+        private string DescripcionCalculoRecurrenteMensualVariosDiasUnaVez(EntradaDTO entrada)
+        {
+            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses." +
+                $" El programador se utilizará una vez al día a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
+        }
+
+        private string DescripcionCalculoRecurrenteMensualVariosDiasVariasVeces(EntradaDTO entrada)
+        {
+            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses." +
+                $" El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las" +
+                            $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
         }
     }
 }
