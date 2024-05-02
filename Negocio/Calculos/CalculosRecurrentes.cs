@@ -19,7 +19,7 @@ namespace Negocio.Calculos
                 Descripcion = new Descripcion().ObtenerDescripcion(entrada)
             };
         }
-        public DateTime FechaEjecucionRepeticionRecurrente(EntradaDTO entrada)
+        private DateTime FechaEjecucionRepeticionRecurrente(EntradaDTO entrada)
         {
             DateTime fechaRepeticion = new DateTime();
 

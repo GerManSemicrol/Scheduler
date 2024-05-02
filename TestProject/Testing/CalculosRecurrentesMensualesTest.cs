@@ -2801,5 +2801,69 @@ namespace TestProject.Testing
             // Assert
             salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
         }
+
+        [Fact]
+        public void Tipo1_UltimoDay_HoraActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day),
+                FrecuenciaDiaria = new FrecuenciaDiariaDTO
+                {
+                    HoraInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0).AddHours(-1)
+                },
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Ultimo,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(3)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void Tipo1_UltimoDay_HoraActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day),
+                FrecuenciaDiaria = new FrecuenciaDiariaDTO
+                {
+                    HoraInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0).AddHours(1)
+                },
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Ultimo,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(3)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
     }
 }

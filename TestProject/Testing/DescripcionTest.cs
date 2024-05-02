@@ -175,12 +175,16 @@ namespace TestProject.Testing
                     HoraInicio = new DateTime(2024, 04, 18, 9, 0, 0),
                 } 
             };
+            var salidaEsperada = new SalidaDTO
+            {
+                Descripcion = "Ocurre el día 3 cada 4 meses. El programador se utilizará una vez al día a las 09:00:00"
+            };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre el día 3 cada 4 meses. El programador se utilizará una vez al día a las 09:00:00");
+            salidaResultado.Should().Be(salidaEsperada.Descripcion);
 
         }
 

@@ -78,7 +78,7 @@ namespace Negocio.Calculos
                 case FrecuenciasDia.Cuarto:
                     return ComprobarDiaFechaActual(entrada, 3);
                 case FrecuenciasDia.Ultimo:
-                    return ComprobarDiaFechaActual(entrada, (ObtenerDiasMesDiaSemanaDeseado(entrada).Count) - 1);
+                    return ComprobarDiaFechaActual(entrada, (ObtenerDias(entrada).Count) - 1);
                 default:
                     throw new ArgumentException("Frecuencia no válida.");
             }
@@ -121,7 +121,6 @@ namespace Negocio.Calculos
         private List<DateTime> ObtenerDiasDiaDeseado(EntradaDTO entrada)
         {
             List<DateTime> dias = new List<DateTime>();
-            
 
             // Calcular el día de la semana de la fecha actual
             int DiaDeLaSemana = (int)entrada.FechaActual.DayOfWeek;
@@ -138,6 +137,8 @@ namespace Negocio.Calculos
             while (primerDiaBuscado.Month == entrada.FechaActual.Month)
             {
                 dias.Add(primerDiaBuscado);
+                if (primerDiaBuscado.DayOfWeek == DayOfWeek.Sunday)
+                    break; // Salir del bucle si es domingo
                 primerDiaBuscado = primerDiaBuscado.AddDays(1);
             }
 

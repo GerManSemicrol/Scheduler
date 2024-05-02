@@ -30,7 +30,7 @@ namespace TestProject.Testing
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = new DateTime(2024, 04, 18),
-                Descripcion = $"Ocurre diariamente. El programador se utilizará el 18/04/2024 a las 14:00",
+                Descripcion = "Ocurre diariamente. El programador se utilizará el 18/04/2024 a las 14:00",
                 Tipo = TiposCalculos.Recurrente
             };
 
