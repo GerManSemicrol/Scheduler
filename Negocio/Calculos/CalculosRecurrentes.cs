@@ -24,19 +24,15 @@ namespace Negocio.Calculos
             DateTime fechaRepeticion = new DateTime();
 
             if (entrada.Ocurrencia == OcurrenciaCalculos.Diaria)
-            {  
+            {
                 return new CalculosRecurrentesDiarios().CalculoFechaEjecucion(entrada);
             }
             else if (entrada.Ocurrencia == OcurrenciaCalculos.Semanal)
-            {        
-                return new CalculosRecurrentesSemanales().CalculoFechaEjecucion(entrada);                
-            }
-            else if (entrada.Ocurrencia == OcurrenciaCalculos.Mensual)
             {
-                return new CalculosRecurrentesMensuales().CalculoFechaEjecucion(entrada);
+                return new CalculosRecurrentesSemanales().CalculoFechaEjecucion(entrada);
             }
 
-            return fechaRepeticion;
-        }        
+            return new CalculosRecurrentesMensuales().CalculoFechaEjecucion(entrada);
+        }
     }
 }

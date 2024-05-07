@@ -27,7 +27,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Recurrente_Mensual_SalidaComplete()
+        public void Recurrente_Mensual_SalidaCompleta()
         {
             // Arrange
             var calculadora = new CalculosRecurrentes();

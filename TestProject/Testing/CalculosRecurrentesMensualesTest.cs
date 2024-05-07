@@ -8,7 +8,7 @@ namespace TestProject.Testing
     public class CalculosRecurrentesMensualesTest
     {
         [Fact]
-        public void Tipo0_DiaAnterior_FechaActual()
+        public void DiaConcreto_DiaAnterior_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -34,7 +34,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo0_DiaAnterior_FechaActual_Febrero()
+        public void DiaConcreto_DiaAnterior_FechaActual_Febrero()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -60,7 +60,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo0_DiaPosterior_FechaActual()
+        public void DiaConcreto_DiaPosterior_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -86,7 +86,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo0_DiaIgual_FechaActual()
+        public void DiaConcreto_DiaIgual_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -112,7 +112,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo0_Dia31_FechaActual()
+        public void DiaConcreto_Dia31_FechaActual()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -138,7 +138,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerLunes_FechaActualAnterior()
+        public void DiaSemana_PrimerLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -166,7 +166,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerLunes_FechaActualPosterior()
+        public void DiaSemana_PrimerLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -194,7 +194,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoLunes_FechaActualAnterior()
+        public void DiaSemana_SegundoLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -222,7 +222,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoLunes_FechaActualPosterior()
+        public void DiaSemana_SegundoLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -250,7 +250,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerLunes_FechaActualAnterior()
+        public void DiaSemana_TercerLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -278,7 +278,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerLunes_FechaActualPosterior()
+        public void DiaSemana_TercerLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -306,7 +306,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoLunes_FechaActualAnterior()
+        public void DiaSemana_CuartoLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -334,7 +334,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoLunes_FechaActualPosterior()
+        public void DiaSemana_CuartoLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -362,7 +362,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoLunes_FechaActualAnterior()
+        public void DiaSemana_UltimoLunes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -390,7 +390,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoLunes_FechaActualPosterior()
+        public void DiaSemana_UltimoLunes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -418,7 +418,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerMartes_FechaActualAnterior()
+        public void DiaSemana_PrimerMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -446,7 +446,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerMartes_FechaActualPosterior()
+        public void DiaSemana_PrimerMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -474,7 +474,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoMartes_FechaActualAnterior()
+        public void DiaSemana_SegundoMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -502,7 +502,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoMartes_FechaActualPosterior()
+        public void DiaSemana_SegundoMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -530,7 +530,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerMartes_FechaActualAnterior()
+        public void DiaSemana_TercerMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -558,7 +558,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerMartes_FechaActualPosterior()
+        public void DiaSemana_TercerMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -586,7 +586,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoMartes_FechaActualAnterior()
+        public void DiaSemana_CuartoMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -614,7 +614,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoMartes_FechaActualPosterior()
+        public void DiaSemana_CuartoMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -642,7 +642,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoMartes_FechaActualAnterior()
+        public void DiaSemana_UltimoMartes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -670,7 +670,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoMartes_FechaActualPosterior()
+        public void DiaSemana_UltimoMartes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -698,7 +698,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerMiercoles_FechaActualAnterior()
+        public void DiaSemana_PrimerMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -726,7 +726,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerMiercoles_FechaActualPosterior()
+        public void DiaSemana_PrimerMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -754,7 +754,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoMiercoles_FechaActualAnterior()
+        public void DiaSemana_SegundoMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -782,7 +782,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoMiercoles_FechaActualPosterior()
+        public void DiaSemana_SegundoMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -810,7 +810,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerMiercoles_FechaActualAnterior()
+        public void DiaSemana_TercerMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -838,7 +838,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerMiercoles_FechaActualPosterior()
+        public void DiaSemana_TercerMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -866,7 +866,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoMiercoles_FechaActualAnterior()
+        public void DiaSemana_CuartoMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -894,7 +894,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoMiercoles_FechaActualPosterior()
+        public void TDiaSemana_CuartoMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -922,7 +922,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoMiercoles_FechaActualAnterior()
+        public void DiaSemana_UltimoMiercoles_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -950,7 +950,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoMiercoles_FechaActualPosterior()
+        public void DiaSemana_UltimoMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -978,7 +978,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerJueves_FechaActualAnterior()
+        public void DiaSemana_PrimerJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1006,7 +1006,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerJueves_FechaActualPosterior()
+        public void DiaSemana_PrimerJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1034,7 +1034,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoJueves_FechaActualAnterior()
+        public void DiaSemana_SegundoJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1062,7 +1062,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoJueves_FechaActualPosterior()
+        public void DiaSemana_SegundoJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1090,7 +1090,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerJueves_FechaActualAnterior()
+        public void DiaSemana_TercerJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1118,7 +1118,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerJueves_FechaActualPosterior()
+        public void DiaSemana_TercerJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1146,7 +1146,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoJueves_FechaActualAnterior()
+        public void DiaSemana_CuartoJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1174,7 +1174,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoJueves_FechaActualPosterior()
+        public void DiaSemana_CuartoJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1202,7 +1202,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoJueves_FechaActualAnterior()
+        public void DiaSemana_UltimoJueves_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1230,7 +1230,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoJueves_FechaActualPosterior()
+        public void DiaSemana_UltimoJueves_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1258,7 +1258,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerViernes_FechaActualAnterior()
+        public void DiaSemana_PrimerViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1286,7 +1286,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerViernes_FechaActualPosterior()
+        public void DiaSemana_PrimerViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1314,7 +1314,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoViernes_FechaActualAnterior()
+        public void DiaSemana_SegundoViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1342,7 +1342,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoViernes_FechaActualPosterior()
+        public void DiaSemana_SegundoViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1370,7 +1370,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerViernes_FechaActualAnterior()
+        public void DiaSemana_TercerViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1398,7 +1398,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerViernes_FechaActualPosterior()
+        public void DiaSemana_TercerViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1426,7 +1426,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoViernes_FechaActualAnterior()
+        public void DiaSemana_CuartoViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1454,7 +1454,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoViernes_FechaActualPosterior()
+        public void DiaSemana_CuartoViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1483,7 +1483,7 @@ namespace TestProject.Testing
         
 
         [Fact]
-        public void Tipo1_UltimoViernes_FechaActualAnterior()
+        public void DiaSemana_UltimoViernes_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1511,7 +1511,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoViernes_FechaActualPosterior()
+        public void DiaSemana_UltimoViernes_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1539,7 +1539,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerSabado_FechaActualAnterior()
+        public void DiaSemana_PrimerSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1567,7 +1567,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerSabado_FechaActualPosterior()
+        public void DiaSemana_PrimerSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1595,7 +1595,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoSabado_FechaActualAnterior()
+        public void DiaSemana_SegundoSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1623,7 +1623,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoSabado_FechaActualPosterior()
+        public void DiaSemana_SegundoSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1651,7 +1651,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerSabado_FechaActualAnterior()
+        public void DiaSemana_TercerSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1679,7 +1679,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerSabado_FechaActualPosterior()
+        public void DiaSemana_TercerSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1707,7 +1707,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoSabado_FechaActualAnterior()
+        public void DiaSemana_CuartoSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1735,7 +1735,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoSabado_FechaActualPosterior()
+        public void DiaSemana_CuartoSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1763,7 +1763,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoSabado_FechaActualAnterior()
+        public void DiaSemana_UltimoSabado_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1791,7 +1791,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoSabado_FechaActualPosterior()
+        public void DiaSemana_UltimoSabado_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1819,7 +1819,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerDomingo_FechaActualAnterior()
+        public void DiaSemana_PrimerDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1847,7 +1847,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerDomingo_FechaActualPosterior()
+        public void DiaSemana_PrimerDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1875,7 +1875,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoDomingo_FechaActualAnterior()
+        public void DiaSemana_SegundoDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1903,7 +1903,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoDomingo_FechaActualPosterior()
+        public void DiaSemana_SegundoDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1931,7 +1931,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerDomingo_FechaActualAnterior()
+        public void DiaSemana_TercerDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1959,7 +1959,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerDomingo_FechaActualPosterior()
+        public void DiaSemana_TercerDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -1987,7 +1987,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoDomingo_FechaActualAnterior()
+        public void DiaSemana_CuartoDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2015,7 +2015,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoDomingo_FechaActualPosterior()
+        public void DiaSemana_CuartoDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2043,7 +2043,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoDomingo_FechaActualAnterior()
+        public void DiaSemana_UltimoDomingo_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2071,7 +2071,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoDomingo_FechaActualPosterior()
+        public void DiaSemana_UltimoDomingo_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2099,7 +2099,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerWeekday_FechaActualAnterior()
+        public void DiaSemana_PrimerWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2127,7 +2127,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerWeekday_FechaActualPosterior()
+        public void DiaSemana_PrimerWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2155,7 +2155,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoWeekday_FechaActualAnterior()
+        public void DiaSemana_SegundoWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2183,7 +2183,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoWeekday_FechaActualPosterior()
+        public void DiaSemana_SegundoWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2211,7 +2211,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerWeekday_FechaActualAnterior()
+        public void DiaSemana_TercerWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2239,7 +2239,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerWeekday_FechaActualPosterior()
+        public void DiaSemana_TercerWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2267,7 +2267,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoWeekday_FechaActualAnterior()
+        public void DiaSemana_CuartoWeekday_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2295,7 +2295,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoWeekday_FechaActualPosterior()
+        public void DiaSemana_CuartoWeekday_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2323,7 +2323,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerWeekend_FechaActualAnterior()
+        public void DiaSemana_PrimerWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2351,7 +2351,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerWeekend_FechaActualPosterior()
+        public void DiaSemana_PrimerWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2379,7 +2379,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoWeekend_FechaActualAnterior()
+        public void DiaSemana_SegundoWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2407,7 +2407,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoWeekend_FechaActualPosterior()
+        public void DiaSemana_SegundoWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2435,7 +2435,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerWeekend_FechaActualAnterior()
+        public void DiaSemana_TercerWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2463,7 +2463,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerWeekend_FechaActualPosterior()
+        public void DiaSemana_TercerWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2491,7 +2491,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoWeekend_FechaActualAnterior()
+        public void DiaSemana_CuartoWeekend_FechaActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2519,7 +2519,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoWeekend_FechaActualPosterior()
+        public void DiaSemana_CuartoWeekend_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2547,7 +2547,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerDay_HoraActualAnterior()
+        public void DiaSemana_PrimerDay_HoraActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2579,7 +2579,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_PrimerDay_HoraActualPosterior()
+        public void DiaSemana_PrimerDay_HoraActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2611,7 +2611,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoDay_HoraActualAnterior()
+        public void DiaSemana_SegundoDay_HoraActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2643,7 +2643,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_SegundoDay_HoraActualPosterior()
+        public void DiaSemana_SegundoDay_HoraActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2675,7 +2675,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerDay_HoraActualAnterior()
+        public void DiaSemana_TercerDay_HoraActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2707,7 +2707,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_TercerDay_HoraActualPosterior()
+        public void DiaSemana_TercerDay_HoraActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2739,7 +2739,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoDay_HoraActualAnterior()
+        public void DiaSemana_CuartoDay_HoraActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2771,7 +2771,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_CuartoDay_HoraActualPosterior()
+        public void DiaSemana_CuartoDay_HoraActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2803,7 +2803,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoDay_HoraActualAnterior()
+        public void DiaSemana_UltimoDay_HoraActualAnterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2824,7 +2824,7 @@ namespace TestProject.Testing
             };
             var salidaEsperada = new SalidaDTO
             {
-                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(3)
+                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(5)
             };
 
             // Act
@@ -2835,7 +2835,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Tipo1_UltimoDay_HoraActualPosterior()
+        public void DiaSemana_UltimoDay_HoraActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2856,7 +2856,7 @@ namespace TestProject.Testing
             };
             var salidaEsperada = new SalidaDTO
             {
-                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(3)
+                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(5)
             };
 
             // Act
@@ -2864,6 +2864,6 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
-        }
+        }        
     }
 }

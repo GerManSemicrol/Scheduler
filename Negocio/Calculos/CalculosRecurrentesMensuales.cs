@@ -18,10 +18,7 @@ namespace Negocio.Calculos
         }
 
         private DateTime ComprobacionDiaSeleccionadoConActual(EntradaDTO entrada)
-        {
-            // Obtener la cantidad de días del mes actual
-            int diasMesSiguiente = DateTime.DaysInMonth(entrada.FechaActual.Year, entrada.FechaActual.AddMonths(1).Month);
-
+        {           
             // Comprobar si el día seleccionado es menor o igual al día actual y menor o igual al número de días que tiene el mes siguiente
             if (entrada.ConfiguracionMensual.DiaMes <= entrada.FechaActual.Day)
             {
@@ -127,13 +124,13 @@ namespace Negocio.Calculos
 
             DayOfWeek diaSemanaDeseado = DiaSemanaDeseado(entrada);
 
-            // Calcular la diferencia entre el día de la semana deseado y el primer día del mes
+            // Calcular la diferencia entre el día de la semana deseado y el primer día de la semana actual
             int diferencia = ((int)diaSemanaDeseado - DiaDeLaSemana + 7) % 7;
 
             // Calcular el primer día del mes que coincide con el día de la semana especificado
             DateTime primerDiaBuscado = entrada.FechaActual.AddDays(diferencia);
 
-            // Añadir los siguientes días que coinciden con el día de la semana especificado
+            // Añadir los siguientes días de la semana posteriores al día de la semana especificado
             while (primerDiaBuscado.Month == entrada.FechaActual.Month)
             {
                 dias.Add(primerDiaBuscado);
@@ -144,7 +141,7 @@ namespace Negocio.Calculos
 
             return dias;
         }
-
+        
         private List<DateTime> ObtenerDiasMesDiaSemanaDeseado(EntradaDTO entrada)
         {
             List<DateTime> dias = new List<DateTime>();
@@ -201,11 +198,9 @@ namespace Negocio.Calculos
                 // Si es posterior, se pasa al día siguiente
                 return entrada.FechaActual.AddDays(1).DayOfWeek;
             }
-            else
-            {
-                // Si es anterior, devuelve el mismo día 
-                return DateTime.Today.Add(entrada.FrecuenciaDiaria.HoraInicio.TimeOfDay).DayOfWeek;
-            }
+
+            // Si es anterior, devuelve el mismo día 
+            return DateTime.Today.Add(entrada.FrecuenciaDiaria.HoraInicio.TimeOfDay).DayOfWeek;
         }
     }
 }
