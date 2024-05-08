@@ -97,6 +97,7 @@ namespace TestProject.Testing
             var entrada = new EntradaDTO
             {
                 FechaActual = fechaActual,
+                Idioma = Idiomas.ESP,
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Semanal,
                 FechaRepeticion = new DateTime(2024, 04, 28),

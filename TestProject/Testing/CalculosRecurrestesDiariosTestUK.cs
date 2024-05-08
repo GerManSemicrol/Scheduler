@@ -1,14 +1,15 @@
-﻿using FluentAssertions;
+﻿using System.Globalization;
+using FluentAssertions;
 using Negocio.Calculos;
 using Negocio.EntitiesDTO;
 using Negocio.Enums;
 
 namespace TestProject.Testing
 {
-    public class CalculosRecurrestesDiariosTest
+    public class CalculosRecurrestesDiariosTestUK
     {
         [Fact]
-        public void Recurrente_OcurrenciaDiaria_UnaVez_ESP()
+        public void Recurrente_OcurrenciaDiaria_UnaVez_UK()
         {
             //Arrenge
             var calculadora = new CalculosRecurrentes();
@@ -26,12 +27,12 @@ namespace TestProject.Testing
                 DiasRepeticion = 2,
                 FechaRepeticion = fechaActual.AddDays(2),
                 FrecuenciaDiaria = frecuenciaDiaria,
-                Idioma = Idiomas.ESP
+                Idioma = Idiomas.UK
             };
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = new DateTime(2024, 04, 18),
-                Descripcion = "Ocurre diariamente. El programador se utilizará el 18/04/2024 a las 14:00",
+                Descripcion = "Occurs every day. Schedule will be used on 18/04/2024 at 02:00 PM starting on 16/04/2024",
                 Tipo = TiposCalculos.Recurrente
             };
 
@@ -45,7 +46,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void Recurrente_OcurrenciaDiario_VariasHoras_ESP()
+        public void Recurrente_OcurrenciaDiario_VariasHoras_UK()
         {
             //Arrenge
             var calculadora = new CalculosRecurrentes();
@@ -65,13 +66,12 @@ namespace TestProject.Testing
                 DiasRepeticion = 2,
                 FechaRepeticion = fechaActual.AddDays(2),
                 FrecuenciaDiaria = frecuenciaDiaria,
-                Idioma = Idiomas.ESP
+                Idioma = Idiomas.UK
             };
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = new DateTime(2024, 04, 18),
-                Descripcion = "Ocurre diariamente. El programador se utilizará el 18/04/2024 desde las 14:00" +
-                    " a las 20:00 cada 2 horas",
+                Descripcion = "Occurs every day. Schedule will be used on 18/04/2024 between 02:00 PM and 08:00 PM every 2 hours starting on 16/04/2024",
                 Tipo = TiposCalculos.Recurrente
             };
 
@@ -81,7 +81,7 @@ namespace TestProject.Testing
             //Assert
             salidaResultado.Tipo.Should().Be(salidaEsperada.Tipo);
             salidaResultado.FechaEjecucion.Should().Be(salidaEsperada.FechaEjecucion);
-            salidaResultado.Descripcion.Should().Be(salidaEsperada.Descripcion);            
-        }                     
+            salidaResultado.Descripcion.Should().Be(salidaEsperada.Descripcion);
+        }
     }
 }

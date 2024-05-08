@@ -36,6 +36,7 @@ namespace TestProject.Testing
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Mensual,
                 FechaActual = new DateTime(2024, 3, 31),
+                Idioma = Idiomas.ESP,
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { true },

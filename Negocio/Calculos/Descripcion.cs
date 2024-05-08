@@ -1,4 +1,5 @@
-﻿using Negocio.EntitiesDTO;
+﻿using System.Globalization;
+using Negocio.EntitiesDTO;
 using Negocio.Enums;
 
 namespace Negocio.Calculos
@@ -61,57 +62,167 @@ namespace Negocio.Calculos
 
         private string DescripcionCalculoUnavez(EntradaDTO entrada)
         {
-            return $"Ocurre una vez. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} a las " +
-                    $"{entrada.FechaRepeticion.ToString(("HH:mm"))}";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs once. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} at " +
+                   $"{entrada.FechaRepeticion.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs once. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} at " +
+                   $"{entrada.FechaRepeticion.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
+            }
+            return $"Ocurre una vez. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} a las " +
+                   $"{entrada.FechaRepeticion.ToString("HH:mm")}";
         }
 
         private string DescripcionCalculoRecurrenteDiarioUnaVez(EntradaDTO entrada)
         {
-            return $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} at " +
+                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} at " +
+                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
+            }
+            return $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}";
         }
 
         private string DescripcionCalculoRecurrenteDiarioVariasVeces(EntradaDTO entrada)
         {
-            return $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))} desde las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}" +
-                                $" a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
+                    $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                    $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                    $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} " +
+                    $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                    $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                    $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
+            }
+            return $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} desde las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}" +
+                   $" a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
         }
 
         private string DescripcionCalculoRecurrenteSemanalUnaVez(EntradaDTO entrada)
         {
-            return $"Ocurre cada {entrada.ConfiguracionSemana.NumeroSemanas} semana/s. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))}" +
-                                $" a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
+                       $"at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} " +
+                       $"at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
+            }
+            return $"Ocurre cada {entrada.ConfiguracionSemana.NumeroSemanas} semana/s. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")}" +
+                   $" a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}";
         }
 
         private string DescripcionCalculoRecurrenteSemanalVariasVeces(EntradaDTO entrada)
         {
-            return $"Ocurre cada {entrada.ConfiguracionSemana.NumeroSemanas} semana/s. El programador se utilizará el {entrada.FechaRepeticion.ToString(("dd/MM/yyyy"))}" +
-                                $" desde las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}" +
-                                $" a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
+                       $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} " +
+                       $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
+            }
+            return $"Ocurre cada {entrada.ConfiguracionSemana.NumeroSemanas} semana/s. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
+                   $"desde las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")} " +
+                   $"a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
         }
 
         private string DescripcionCalculoRecurrenteMensualUnDiaUnaVez(EntradaDTO entrada)
         {
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day at " +
+                       $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day at " +
+                       $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
+            }
             return $"Ocurre el día {entrada.ConfiguracionMensual.DiaMes} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. El programador se utilizará una vez al día a las " +
-                            $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
+                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
         }
         private string DescripcionCalculoRecurrenteMensualUnDiaVariasVeces(EntradaDTO entrada)
         {
-            return $"Ocurre el día {entrada.ConfiguracionMensual.DiaMes} cada {entrada.ConfiguracionMensual.CantidadMeses} meses." +
-                $" El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las" +
-                            $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day between " +
+                       $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day between " +
+                      $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                      $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                      $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
+            }
+            return $"Ocurre el día {entrada.ConfiguracionMensual.DiaMes} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. " +
+                   $"El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las " +
+                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
         }
 
         private string DescripcionCalculoRecurrenteMensualVariosDiasUnaVez(EntradaDTO entrada)
         {
-            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses." +
-                $" El programador se utilizará una vez al día a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
+                       $"Schedule will be used on day at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
+                       $"Schedule will be used on day at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
+            }
+            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. " +
+                   $"El programador se utilizará una vez al día a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
         }
 
         private string DescripcionCalculoRecurrenteMensualVariosDiasVariasVeces(EntradaDTO entrada)
         {
-            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses." +
-                $" El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las" +
-                            $" {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
+            if (entrada.Idioma == Idiomas.UK)
+            {
+                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
+                       $"Schedule will be used on day between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
+            }
+            else if (entrada.Idioma == Idiomas.US)
+            {
+                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
+                       $"Schedule will be used on day between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
+                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
+                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
+            }
+            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. " +
+                   $"El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las " +
+                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
         }
     }
 }

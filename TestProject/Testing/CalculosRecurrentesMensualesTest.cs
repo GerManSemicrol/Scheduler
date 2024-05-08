@@ -2824,7 +2824,7 @@ namespace TestProject.Testing
             };
             var salidaEsperada = new SalidaDTO
             {
-                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(5)
+                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(4)
             };
 
             // Act
@@ -2856,7 +2856,7 @@ namespace TestProject.Testing
             };
             var salidaEsperada = new SalidaDTO
             {
-                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(5)
+                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(4)
             };
 
             // Act

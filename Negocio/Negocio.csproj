@@ -55,6 +55,7 @@
     <Compile Include="EntitiesDTO\SalidaDTO.cs" />
     <Compile Include="Enums\DiasSemana.cs" />
     <Compile Include="Enums\FrecuenciasDia.cs" />
+    <Compile Include="Enums\Idioma.cs" />
     <Compile Include="Enums\OcurrenciaCalculos.cs" />
     <Compile Include="Enums\TiposTiempo.cs" />
     <Compile Include="Enums\TiposCalculos.cs" />

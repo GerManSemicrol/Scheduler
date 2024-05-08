@@ -1,30 +1,12 @@
-﻿using System.Security.Cryptography;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Negocio.Calculos;
 using Negocio.EntitiesDTO;
 using Negocio.Enums;
 
 namespace TestProject.Testing
 {
-    public class DescripcionTest
+    public class DescripcionTestUS
     {
-        [Fact]
-        public void ObtenerDescripcion_Nulo_DeberiaRetornarNull()
-        {
-            // Arrange
-            var descripcion = new Descripcion();
-            var entrada = new EntradaDTO
-            {
-                TipoCalculo = TiposCalculos.nulo,                
-            };            
-
-            // Act
-            var salidaResultado = descripcion.ObtenerDescripcion(entrada);
-
-            // Assert
-            salidaResultado.Should().BeNull();
-        }
-
         [Fact]
         public void ObtenerDescripcion_Recurrente_Diariamente_UnaVez()
         {
@@ -32,21 +14,23 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
+                FechaActual = new DateTime(2024, 04, 16),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Diaria,
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
                 {
                     TipoFrecuenciaDiaria = TiposCalculos.Una_vez,
-                    HoraInicio = new DateTime(2024, 04, 18, 9, 0, 0),
+                    HoraInicio = new DateTime(2024, 04, 18, 14, 0, 0),
                 },
-                FechaRepeticion = new DateTime(2024, 04, 18)
+                FechaRepeticion = new DateTime(2024, 04, 18),
+                Idioma = Idiomas.US
             };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre diariamente. El programador se utilizará el 18/04/2024 a las 09:00");
+            salidaResultado.Should().Be("Occurs every day. Schedule will be used on 04/18/2024 at 02:00 PM starting on 04/16/2024");
 
         }
 
@@ -57,6 +41,7 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
+                FechaActual = new DateTime(2024, 04, 16),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Diaria,
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
@@ -66,14 +51,15 @@ namespace TestProject.Testing
                     HoraFin = new DateTime(2024, 04, 18, 20, 0, 0),
                     TiempoRepeticion = 2
                 },
-                FechaRepeticion = new DateTime(2024, 04, 18)
+                FechaRepeticion = new DateTime(2024, 04, 18),
+                Idioma = Idiomas.US
             };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre diariamente. El programador se utilizará el 18/04/2024 desde las 09:00 a las 20:00 cada 2 horas");
+            salidaResultado.Should().Be("Occurs every day. Schedule will be used on 04/18/2024 between 09:00 AM and 08:00 PM every 2 hours starting on 04/16/2024");
         }
 
         [Fact]
@@ -83,14 +69,16 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
+                FechaActual = new DateTime(2024, 04, 18),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Semanal,
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
                 {
                     TipoFrecuenciaDiaria = TiposCalculos.Una_vez,
-                    HoraInicio = new DateTime(2024,04,18,9,0,0),
+                    HoraInicio = new DateTime(2024, 04, 18, 9, 0, 0),
                 },
-                FechaRepeticion = new DateTime(2024,04,18),
+                FechaRepeticion = new DateTime(2024, 04, 18),
+                Idioma = Idiomas.US,
                 ConfiguracionSemana = new ConfiguracionSemanalDTO
                 {
                     NumeroSemanas = 2,
@@ -101,7 +89,7 @@ namespace TestProject.Testing
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre cada 2 semana/s. El programador se utilizará el 18/04/2024 a las 09:00");           
+            salidaResultado.Should().Be("Occurs every 2 week/s. Schedule will be used on 04/18/2024 at 09:00 AM");
 
         }
 
@@ -112,6 +100,7 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
+                FechaActual = new DateTime(2024, 04, 16),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Semanal,
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
@@ -122,6 +111,7 @@ namespace TestProject.Testing
                     TiempoRepeticion = 2
                 },
                 FechaRepeticion = new DateTime(2024, 04, 18),
+                Idioma = Idiomas.US,
                 ConfiguracionSemana = new ConfiguracionSemanalDTO
                 {
                     NumeroSemanas = 2,
@@ -132,25 +122,7 @@ namespace TestProject.Testing
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre cada 2 semana/s. El programador se utilizará el 18/04/2024 desde las 09:00 a las 20:00 cada 2 horas");
-        }
-
-        [Fact]
-        public void ObtenerDescripcion_Recurrente_Nulo_DeberiaRetornarNull()
-        {
-            // Arrange
-            var descripcion = new Descripcion();
-            var entrada = new EntradaDTO
-            {
-                TipoCalculo = TiposCalculos.Recurrente,
-                Ocurrencia = OcurrenciaCalculos.Nulo
-            };
-
-            // Act
-            var salidaResultado = descripcion.ObtenerDescripcion(entrada);
-
-            // Assert
-            salidaResultado.Should().BeNull();
+            salidaResultado.Should().Be("Occurs every 2 week/s. Schedule will be used on 04/18/2024 between 09:00 AM and 08:00 PM every 2 hours starting on 04/16/2024");
         }
 
         [Fact]
@@ -160,9 +132,10 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
-                FechaActual = new DateTime(2024,04,18),
+                FechaActual = new DateTime(2024, 04, 18),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Mensual,
+                Idioma = Idiomas.US,
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { true },
@@ -173,11 +146,11 @@ namespace TestProject.Testing
                 {
                     TipoFrecuenciaDiaria = TiposCalculos.Una_vez,
                     HoraInicio = new DateTime(2024, 04, 18, 9, 0, 0),
-                } 
+                }
             };
             var salidaEsperada = new SalidaDTO
             {
-                Descripcion = "Ocurre el día 3 cada 4 meses. El programador se utilizará una vez al día a las 09:00:00"
+                Descripcion = $"Occurs on day 3 every 4 month/s. Schedule will be used on day at 09:00 AM starting on 04/18/2024"
             };
 
             // Act
@@ -195,9 +168,10 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
-                FechaActual = new DateTime(2024, 04, 18),
+                FechaActual = new DateTime(2024, 04, 16),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Mensual,
+                Idioma = Idiomas.US,
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { true },
@@ -210,14 +184,18 @@ namespace TestProject.Testing
                     HoraInicio = new DateTime(2024, 04, 18, 9, 0, 0),
                     HoraFin = new DateTime(2024, 04, 18, 20, 0, 0),
                     TiempoRepeticion = 2
-                }             
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                Descripcion = $"Occurs on day 3 every 4 month/s. Schedule will be used on day between 09:00 AM and 08:00 PM every 2 hours starting on 04/16/2024"
             };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre el día 3 cada 4 meses. El programador se utilizará cada 2 hora/s entre las 09:00:00 y las 20:00:00");
+            salidaResultado.Should().Be(salidaEsperada.Descripcion);
 
         }
 
@@ -231,6 +209,7 @@ namespace TestProject.Testing
                 FechaActual = new DateTime(2024, 04, 18),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Mensual,
+                Idioma = Idiomas.US,
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
@@ -242,14 +221,18 @@ namespace TestProject.Testing
                 {
                     TipoFrecuenciaDiaria = TiposCalculos.Una_vez,
                     HoraInicio = new DateTime(2024, 04, 18, 9, 0, 0),
-                }                
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                Descripcion = "Occurs the Primer Lunes of every 2 month/s. Schedule will be used on day at 09:00 AM starting on 04/18/2024"
             };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre el Primer Lunes cada 2 meses. El programador se utilizará una vez al día a las 09:00:00");
+            salidaResultado.Should().Be(salidaEsperada.Descripcion);
         }
 
         [Fact]
@@ -259,9 +242,10 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
-                FechaActual = new DateTime(2024, 04, 18),
+                FechaActual = new DateTime(2024, 04, 16),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Mensual,
+                Idioma = Idiomas.US,
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
@@ -275,15 +259,18 @@ namespace TestProject.Testing
                     HoraInicio = new DateTime(2024, 04, 18, 9, 0, 0),
                     HoraFin = new DateTime(2024, 04, 18, 20, 0, 0),
                     TiempoRepeticion = 2
-                }                                
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                Descripcion = "Occurs the Primer Lunes of every 2 month/s. Schedule will be used on day between 09:00 AM and 08:00 PM every 2 hours starting on 04/16/2024"
             };
 
             // Act
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Ocurre el Primer Lunes cada 2 meses. El programador se utilizará cada 2 hora/s entre las 09:00:00 y las 20:00:00");
+            salidaResultado.Should().Be(salidaEsperada.Descripcion);
         }
-
     }
 }

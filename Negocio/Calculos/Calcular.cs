@@ -4,11 +4,11 @@ namespace Negocio.Calculos
 {
     public class Calcular
     {
-        private CalculosUnaVez calculadorOnce = new CalculosUnaVez();
-        private CalculosRecurrentes calculadorRecurring = new CalculosRecurrentes();
+        private CalculosUnaVez calculadorUnaVez = new CalculosUnaVez();
+        private CalculosRecurrentes calculadorRecurrente = new CalculosRecurrentes();
         public SalidaDTO Calculo(EntradaDTO entrada)
         {
-            return calculadorOnce.CalcularSoloUnaVez(entrada) ?? calculadorRecurring.CalcularRecurrente(entrada);
+            return calculadorUnaVez.CalcularSoloUnaVez(entrada) ?? calculadorRecurrente.CalcularRecurrente(entrada);
         }
     }
 }
