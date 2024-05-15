@@ -2,13 +2,13 @@
 {
     public enum DiasSemana
     {
-        Domingo,
+        Domingo,       
         Lunes,
         Martes,
         Miercoles,
         Jueves,
         Viernes,
-        Sabado,        
+        Sabado,
         Dia,
         Entre_semana,
         Fin_de_semana

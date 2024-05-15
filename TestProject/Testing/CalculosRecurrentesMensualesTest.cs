@@ -894,7 +894,7 @@ namespace TestProject.Testing
         }
 
         [Fact]
-        public void TDiaSemana_CuartoMiercoles_FechaActualPosterior()
+        public void DiaSemana_CuartoMiercoles_FechaActualPosterior()
         {
             // Arrange
             var calculo = new CalculosRecurrentesMensuales();
@@ -2864,6 +2864,290 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_FirstMonday_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Primer,
+                    DiaSemana = DiasSemana.Lunes,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 1)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_SecondTuesday_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 13),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Segundo,
+                    DiaSemana = DiasSemana.Martes,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 9)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_ThirdWendnesday_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 13),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
+                    DiaSemana = DiasSemana.Miercoles,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 20)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_FourthThursday_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Cuarto,
+                    DiaSemana = DiasSemana.Jueves,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 28)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_LastFriday_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 3),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Ultimo,
+                    DiaSemana = DiasSemana.Viernes,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 29)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_SecondSaturday_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Segundo,
+                    DiaSemana = DiasSemana.Sabado,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 9)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_FirstSunday_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 2),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Primer,
+                    DiaSemana = DiasSemana.Domingo,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 3)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
         }        
+
+        [Fact]
+        public void DiaSemana_ThirdWeekday_FechaActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 5),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
+                    DiaSemana = DiasSemana.Entre_semana,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 3, 18)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_FourthWeekend_FechaActualPosterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(2024, 3, 27),
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Cuarto,
+                    DiaSemana = DiasSemana.Fin_de_semana,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(2024, 4, 27)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
+
+        [Fact]
+        public void DiaSemana_SecondDay_HoraActualAnterior()
+        {
+            // Arrange
+            var calculo = new CalculosRecurrentesMensuales();
+            var entrada = new EntradaDTO
+            {
+                FechaActual = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day),
+                FrecuenciaDiaria = new FrecuenciaDiariaDTO
+                {
+                    HoraInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0).AddHours(-1)
+                },
+                ConfiguracionMensual = new ConfiguracionMensualDTO
+                {
+                    Tipo = new bool[] { false, true },
+                    FrecuenciaDia = FrecuenciasDia.Segundo,
+                    DiaSemana = DiasSemana.Dia,
+                    CantidadMeses = 1
+                }
+            };
+            var salidaEsperada = new SalidaDTO
+            {
+                FechaEjecucion = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(2)
+            };
+
+            // Act
+            var salidaResultado = calculo.CalculoFechaEjecucion(entrada);
+
+            // Assert
+            salidaResultado.Should().Be(salidaEsperada.FechaEjecucion);
+        }
     }
 }

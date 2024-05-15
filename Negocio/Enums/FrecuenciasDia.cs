@@ -6,6 +6,6 @@
         Segundo,
         Tercer,
         Cuarto,
-        Ultimo
+        Ultimo,
     }
 }

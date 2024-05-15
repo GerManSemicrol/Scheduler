@@ -6,7 +6,7 @@ using Negocio.Enums;
 namespace TestProject.Testing
 {
     public class DescripcionTestUK
-    {        
+    {
 
         [Fact]
         public void ObtenerDescripcion_Recurrente_Diariamente_UnaVez()
@@ -32,7 +32,6 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be("Occurs every day. Schedule will be used on 18/04/2024 at 02:00 PM starting on 16/04/2024");
-
         }
 
         [Fact]
@@ -70,7 +69,7 @@ namespace TestProject.Testing
             var descripcion = new Descripcion();
             var entrada = new EntradaDTO
             {
-                FechaActual = new DateTime(2024, 04, 18),
+                FechaActual = new DateTime(2024, 04, 16),
                 TipoCalculo = TiposCalculos.Recurrente,
                 Ocurrencia = OcurrenciaCalculos.Semanal,
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
@@ -90,8 +89,7 @@ namespace TestProject.Testing
             var salidaResultado = descripcion.ObtenerDescripcion(entrada);
 
             // Assert
-            salidaResultado.Should().Be("Occurs every 2 week/s. Schedule will be used on 18/04/2024 at 09:00 AM");
-
+            salidaResultado.Should().Be("Occurs every 2 week/s. Schedule will be used on 18/04/2024 at 09:00 AM starting on 16/04/2024");
         }
 
         [Fact]
@@ -124,7 +122,7 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be("Occurs every 2 week/s. Schedule will be used on 18/04/2024 between 09:00 AM and 08:00 PM every 2 hours starting on 16/04/2024");
-        }        
+        }
 
         [Fact]
         public void ObtenerDescripcion_Recurrente_Mensual_UnDia_UnaVez()
@@ -159,7 +157,6 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be(salidaEsperada.Descripcion);
-
         }
 
         [Fact]
@@ -197,7 +194,6 @@ namespace TestProject.Testing
 
             // Assert
             salidaResultado.Should().Be(salidaEsperada.Descripcion);
-
         }
 
         [Fact]
@@ -214,8 +210,8 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primer,
-                    DiaSemana = DiasSemana.Lunes,
+                    FrecuenciaDia = FrecuenciasDia.Segundo,
+                    DiaSemana = DiasSemana.Miercoles,
                     CantidadMeses = 2
                 },
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
@@ -226,7 +222,7 @@ namespace TestProject.Testing
             };
             var salidaEsperada = new SalidaDTO
             {
-                Descripcion = "Occurs the Primer Lunes of every 2 month/s. Schedule will be used on day at 09:00 AM starting on 18/04/2024"
+                Descripcion = "Occurs the Second Wednesday of every 2 month/s. Schedule will be used on day at 09:00 AM starting on 18/04/2024"
             };
 
             // Act
@@ -250,8 +246,8 @@ namespace TestProject.Testing
                 ConfiguracionMensual = new ConfiguracionMensualDTO
                 {
                     Tipo = new bool[] { false, true },
-                    FrecuenciaDia = FrecuenciasDia.Primer,
-                    DiaSemana = DiasSemana.Lunes,
+                    FrecuenciaDia = FrecuenciasDia.Tercer,
+                    DiaSemana = DiasSemana.Viernes,
                     CantidadMeses = 2
                 },
                 FrecuenciaDiaria = new FrecuenciaDiariaDTO
@@ -264,7 +260,7 @@ namespace TestProject.Testing
             };
             var salidaEsperada = new SalidaDTO
             {
-                Descripcion = "Occurs the Primer Lunes of every 2 month/s. Schedule will be used on day between 09:00 AM and 08:00 PM every 2 hours starting on 16/04/2024"
+                Descripcion = "Occurs the Third Friday of every 2 month/s. Schedule will be used on day between 09:00 AM and 08:00 PM every 2 hours starting on 16/04/2024"
             };
 
             // Act

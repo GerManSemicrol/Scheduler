@@ -9,9 +9,7 @@ namespace Negocio.EntitiesDTO
         public TiposCalculos TipoCalculo { get; set; }
         public DateTime FechaRepeticion { get; set; }
         public OcurrenciaCalculos Ocurrencia { get; set; }
-        public int DiasRepeticion { get; set; }
-        //public DateTime FechaInicio { get; set; }
-        //public DateTime FechaFinal { get; set; }
+        public int DiasRepeticion { get; set; }        
         public FrecuenciaDiariaDTO FrecuenciaDiaria { get; set; }
         public ConfiguracionSemanalDTO ConfiguracionSemana { get; set; }
         public ConfiguracionMensualDTO ConfiguracionMensual { get; set; }

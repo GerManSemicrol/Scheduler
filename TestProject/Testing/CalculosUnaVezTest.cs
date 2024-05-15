@@ -23,7 +23,7 @@ namespace TestProject.Testing
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = $"Ocurre una vez. El programador se utilizará el 19/04/2024 a las 14:00",
+                Descripcion = $"Ocurre una vez. El programador se utilizará el 19/04/2024 a las 14:00 a partir del 17/04/2024",
                 Tipo = TiposCalculos.Una_vez
             };
 
@@ -73,7 +73,7 @@ namespace TestProject.Testing
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = "Occurs once. Schedule will be used on 04/19/2024 at 02:00 PM",
+                Descripcion = "Occurs once. Schedule will be used on 04/19/2024 at 02:00 PM starting on 04/17/2024",
                 Tipo = TiposCalculos.Una_vez
             };
 
@@ -102,7 +102,7 @@ namespace TestProject.Testing
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = entrada.FechaRepeticion,
-                Descripcion = "Occurs once. Schedule will be used on 19/04/2024 at 02:00 PM",
+                Descripcion = "Occurs once. Schedule will be used on 19/04/2024 at 02:00 PM starting on 17/04/2024",
                 Tipo = TiposCalculos.Una_vez
             };
 

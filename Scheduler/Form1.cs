@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 using Negocio.EntitiesDTO;
 using Negocio.Enums;
@@ -26,7 +27,11 @@ namespace Scheduler
             comboBoxOcurrencia.Items.Add("Quincenal");
             comboBoxOcurrencia.Items.Add("Mensual");
             comboBoxOcurrencia.SelectedIndex = 0;
-            comboBoxFrecDiariaTipoFrecuencia.SelectedIndex = 0;            
+            comboBoxFrecDiariaTipoFrecuencia.SelectedIndex = 0;
+            comboBoxIdioma.Items.Add("Español ES");
+            comboBoxIdioma.Items.Add("English UK");
+            comboBoxIdioma.Items.Add("English US");
+            comboBoxIdioma.SelectedIndex = 0;
         }
 
         private void buttonCalcular_Click(object sender, EventArgs e)
@@ -34,28 +39,26 @@ namespace Scheduler
             EntradaDTO datosEntrada = new EntradaDTO();
 
             datosEntrada.FechaActual = DateTime.Now;
+            datosEntrada.Idioma = (Idiomas)comboBoxIdioma.SelectedIndex;
             datosEntrada.TipoCalculo = (TiposCalculos)comboBoxTipo.SelectedIndex;
-            if(datosEntrada.TipoCalculo == TiposCalculos.Una_vez)
+            if (datosEntrada.TipoCalculo == TiposCalculos.Una_vez)
             {
                 datosEntrada.FechaRepeticion = DateTime.Parse(textBoxFechaOcurrencia.Text);
             }
-            
-            else if(datosEntrada.TipoCalculo == TiposCalculos.Recurrente)
+
+            else if (datosEntrada.TipoCalculo == TiposCalculos.Recurrente)
             {
                 datosEntrada.Ocurrencia = (OcurrenciaCalculos)comboBoxOcurrencia.SelectedIndex;
-                if(datosEntrada.Ocurrencia == OcurrenciaCalculos.Diaria)
+                if (datosEntrada.Ocurrencia == OcurrenciaCalculos.Diaria)
                 {
                     datosEntrada.FechaRepeticion = datosEntrada.FechaActual.AddDays((double)numericDias.Value);
-                }               
-                
+                }
+
             }
 
-            
-            
+            SalidaDTO datosSalida = programador.Calcular(datosEntrada);
 
-            SalidaDTO datosSalida= programador.Calcular(datosEntrada);
-
-            labelProximaEjecucion.Text = datosSalida.FechaEjecucion.ToString("dd/MM/yyyy HH:mm");
+            labelProximaEjecucion.Text = ObtenerFechaSegunIdioma(datosEntrada, datosSalida);
             labelDescripcion.Text = datosSalida.Descripcion.ToString();
         }
 
@@ -75,6 +78,20 @@ namespace Scheduler
                 textBoxFechaOcurrencia.Text = "";
                 textBoxFechaOcurrencia.Enabled = false;
             }
+        }
+
+        private string ObtenerFechaSegunIdioma(EntradaDTO entrada, SalidaDTO salida)
+        {
+            if(entrada.Idioma == Idiomas.UK)
+            {
+                return salida.FechaEjecucion.ToString("dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
+            }
+            else if(entrada.Idioma == Idiomas.US)
+            {
+                return salida.FechaEjecucion.ToString("MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture);
+            }
+
+            return salida.FechaEjecucion.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
         }
     }
 }

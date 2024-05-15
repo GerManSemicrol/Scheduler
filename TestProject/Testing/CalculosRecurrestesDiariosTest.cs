@@ -31,7 +31,7 @@ namespace TestProject.Testing
             var salidaEsperada = new SalidaDTO
             {
                 FechaEjecucion = new DateTime(2024, 04, 18),
-                Descripcion = "Ocurre diariamente. El programador se utilizará el 18/04/2024 a las 14:00",
+                Descripcion = "Ocurre diariamente. El programador se utilizará el 18/04/2024 a las 14:00 a partir del 16/04/2024",
                 Tipo = TiposCalculos.Recurrente
             };
 
@@ -71,7 +71,7 @@ namespace TestProject.Testing
             {
                 FechaEjecucion = new DateTime(2024, 04, 18),
                 Descripcion = "Ocurre diariamente. El programador se utilizará el 18/04/2024 desde las 14:00" +
-                    " a las 20:00 cada 2 horas",
+                    " a las 20:00 cada 2 horas a partir del 16/04/2024",
                 Tipo = TiposCalculos.Recurrente
             };
 
@@ -81,7 +81,7 @@ namespace TestProject.Testing
             //Assert
             salidaResultado.Tipo.Should().Be(salidaEsperada.Tipo);
             salidaResultado.FechaEjecucion.Should().Be(salidaEsperada.FechaEjecucion);
-            salidaResultado.Descripcion.Should().Be(salidaEsperada.Descripcion);            
-        }                     
+            salidaResultado.Descripcion.Should().Be(salidaEsperada.Descripcion);
+        }
     }
 }

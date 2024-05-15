@@ -18,7 +18,7 @@ namespace Negocio.Calculos
         }
 
         private DateTime ComprobacionDiaSeleccionadoConActual(EntradaDTO entrada)
-        {           
+        {
             // Comprobar si el día seleccionado es menor o igual al día actual y menor o igual al número de días que tiene el mes siguiente
             if (entrada.ConfiguracionMensual.DiaMes <= entrada.FechaActual.Day)
             {
@@ -141,7 +141,7 @@ namespace Negocio.Calculos
 
             return dias;
         }
-        
+
         private List<DateTime> ObtenerDiasMesDiaSemanaDeseado(EntradaDTO entrada)
         {
             List<DateTime> dias = new List<DateTime>();

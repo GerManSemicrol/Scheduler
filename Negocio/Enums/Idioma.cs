@@ -2,8 +2,8 @@
 {
     public enum Idiomas
     {
+        ESP,
         UK,
-        US,
-        ESP
+        US        
     }
 }

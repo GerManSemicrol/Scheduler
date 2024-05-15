@@ -1,38 +1,44 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Negocio.EntitiesDTO;
 using Negocio.Enums;
+using Negocio.Traducciones;
 
 namespace Negocio.Calculos
 {
     public class Descripcion
     {
+
         public string ObtenerDescripcion(EntradaDTO entrada)
         {
+            string formatoFecha = entrada.Idioma == Idiomas.US ? "MM/dd/yyyy" : "dd/MM/yyyy";
+            string formatoHora = entrada.Idioma != Idiomas.ESP ? "hh:mm tt" : "HH:mm";
+
             if (entrada.TipoCalculo == TiposCalculos.Una_vez)
             {
-                return new Descripcion().DescripcionCalculoUnavez(entrada);
+                return DescripcionCalculoUnavez(entrada, formatoFecha, formatoHora);
             }
-            else if (entrada.TipoCalculo == TiposCalculos.Recurrente)
-            {
+            
+            
                 switch (entrada.Ocurrencia)
                 {
                     case OcurrenciaCalculos.Diaria:
                         if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Una_vez)
                         {
-                            return new Descripcion().DescripcionCalculoRecurrenteDiarioUnaVez(entrada);
+                            return DescripcionCalculoRecurrenteDiarioUnaVez(entrada, formatoFecha, formatoHora);
                         }
                         else
                         {
-                            return new Descripcion().DescripcionCalculoRecurrenteDiarioVariasVeces(entrada);
+                            return DescripcionCalculoRecurrenteDiarioVariasVeces(entrada, formatoFecha, formatoHora);
                         }
                     case OcurrenciaCalculos.Semanal:
                         if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Una_vez)
                         {
-                            return new Descripcion().DescripcionCalculoRecurrenteSemanalUnaVez(entrada);
+                            return DescripcionCalculoRecurrenteSemanalUnaVez(entrada, formatoFecha, formatoHora);
                         }
                         else
                         {
-                            return new Descripcion().DescripcionCalculoRecurrenteSemanalVariasVeces(entrada);
+                            return DescripcionCalculoRecurrenteSemanalVariasVeces(entrada, formatoFecha, formatoHora);
                         }
                     case OcurrenciaCalculos.Mensual:
                         if (entrada.ConfiguracionMensual.Tipo[0])
@@ -40,189 +46,152 @@ namespace Negocio.Calculos
 
                             if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Una_vez)
                             {
-                                return new Descripcion().DescripcionCalculoRecurrenteMensualUnDiaUnaVez(entrada);
+                                return DescripcionCalculoRecurrenteMensualUnDiaUnaVez(entrada, formatoFecha, formatoHora);
                             }
-                            return new Descripcion().DescripcionCalculoRecurrenteMensualUnDiaVariasVeces(entrada);
+                            return DescripcionCalculoRecurrenteMensualUnDiaVariasVeces(entrada, formatoFecha, formatoHora);
 
                         }
                         else
                         {
                             if (entrada.FrecuenciaDiaria.TipoFrecuenciaDiaria == TiposCalculos.Una_vez)
                             {
-                                return new Descripcion().DescripcionCalculoRecurrenteMensualVariosDiasUnaVez(entrada);
+                                return DescripcionCalculoRecurrenteMensualVariosDiasUnaVez(entrada, formatoFecha, formatoHora);
                             }
-                            return new Descripcion().DescripcionCalculoRecurrenteMensualVariosDiasVariasVeces(entrada);
+                            return DescripcionCalculoRecurrenteMensualVariosDiasVariasVeces(entrada, formatoFecha, formatoHora);
                         }
                     default:
                         return null;
-                }
+                
             }
             return null;
         }
 
-        private string DescripcionCalculoUnavez(EntradaDTO entrada)
+        private Traductor ObtenerTraductor(Idiomas idioma)
         {
-            if (entrada.Idioma == Idiomas.UK)
+            switch (idioma)
             {
-                return $"Occurs once. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} at " +
-                   $"{entrada.FechaRepeticion.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
+                case Idiomas.ESP:
+                    return new TraduccionesESP();
+                default:
+                    return new TraduccionesENG();
             }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs once. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} at " +
-                   $"{entrada.FechaRepeticion.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
-            }
-            return $"Ocurre una vez. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} a las " +
-                   $"{entrada.FechaRepeticion.ToString("HH:mm")}";
         }
 
-        private string DescripcionCalculoRecurrenteDiarioUnaVez(EntradaDTO entrada)
+        private string DescripcionCalculoUnavez(EntradaDTO entrada, String formatoFecha, String formatoHora)
         {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} at " +
-                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} at " +
-                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
-            }
-            return $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}";
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursOnce");
+
+            return string.Format(descripcionPlantilla,
+                                 entrada.FechaRepeticion.ToString(formatoFecha),
+                                 entrada.FechaRepeticion.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FechaActual.ToString(formatoFecha));
         }
 
-        private string DescripcionCalculoRecurrenteDiarioVariasVeces(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteDiarioUnaVez(EntradaDTO entrada, String formatoFecha, String formatoHora)
         {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
-                    $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                    $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                    $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs every day. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} " +
-                    $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                    $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                    $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
-            }
-            return $"Ocurre diariamente. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} desde las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}" +
-                   $" a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryDayOnce");
+
+            return string.Format(descripcionPlantilla,
+                                 entrada.FechaRepeticion.ToString(formatoFecha),
+                                 entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FechaActual.ToString(formatoFecha));
         }
 
-        private string DescripcionCalculoRecurrenteSemanalUnaVez(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteDiarioVariasVeces(EntradaDTO entrada, String formatoFecha, String formatoHora)
         {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
-                       $"at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} " +
-                       $"at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)}";
-            }
-            return $"Ocurre cada {entrada.ConfiguracionSemana.NumeroSemanas} semana/s. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")}" +
-                   $" a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")}";
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryDayMultiple");
+
+            return string.Format(descripcionPlantilla,
+                                 entrada.FechaRepeticion.ToString(formatoFecha),
+                                 entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.HoraFin.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.TiempoRepeticion,
+                                 entrada.FechaActual.ToString(formatoFecha));
         }
 
-        private string DescripcionCalculoRecurrenteSemanalVariasVeces(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteSemanalUnaVez(EntradaDTO entrada, String formatoFecha, String formatoHora)
         {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
-                       $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs every {entrada.ConfiguracionSemana.NumeroSemanas} week/s. Schedule will be used on {entrada.FechaRepeticion.ToString("MM/dd/yyyy")} " +
-                       $"between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
-            }
-            return $"Ocurre cada {entrada.ConfiguracionSemana.NumeroSemanas} semana/s. El programador se utilizará el {entrada.FechaRepeticion.ToString("dd/MM/yyyy")} " +
-                   $"desde las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm")} " +
-                   $"a las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm")} cada {entrada.FrecuenciaDiaria.TiempoRepeticion} horas";
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryWeekOnce");
+
+            return string.Format(descripcionPlantilla,
+                             entrada.ConfiguracionSemana.NumeroSemanas,
+                             entrada.FechaRepeticion.ToString(formatoFecha),
+                             entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                             entrada.FechaActual.ToString(formatoFecha));
         }
 
-        private string DescripcionCalculoRecurrenteMensualUnDiaUnaVez(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteSemanalVariasVeces(EntradaDTO entrada, String formatoFecha, String formatoHora)
         {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day at " +
-                       $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day at " +
-                       $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
-            }
-            return $"Ocurre el día {entrada.ConfiguracionMensual.DiaMes} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. El programador se utilizará una vez al día a las " +
-                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
-        }
-        private string DescripcionCalculoRecurrenteMensualUnDiaVariasVeces(EntradaDTO entrada)
-        {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day between " +
-                       $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs on day {entrada.ConfiguracionMensual.DiaMes} every {entrada.ConfiguracionMensual.CantidadMeses} month/s. Schedule will be used on day between " +
-                      $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                      $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                      $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
-            }
-            return $"Ocurre el día {entrada.ConfiguracionMensual.DiaMes} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. " +
-                   $"El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las " +
-                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryWeekMultiple");
+
+            return string.Format(descripcionPlantilla,
+                                 entrada.ConfiguracionSemana.NumeroSemanas,
+                                 entrada.FechaRepeticion.ToString(formatoFecha),
+                                 entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.HoraFin.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.TiempoRepeticion,
+                                 entrada.FechaActual.ToString(formatoFecha));
         }
 
-        private string DescripcionCalculoRecurrenteMensualVariosDiasUnaVez(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteMensualUnDiaUnaVez(EntradaDTO entrada, String formatoFecha, String formatoHora)
         {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
-                       $"Schedule will be used on day at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
-                       $"Schedule will be used on day at {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
-            }
-            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. " +
-                   $"El programador se utilizará una vez al día a las {entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")}";
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryMonthOneDayOnce");
+
+
+            return string.Format(descripcionPlantilla,
+                                 entrada.ConfiguracionMensual.DiaMes,
+                                 entrada.ConfiguracionMensual.CantidadMeses,
+                                 entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FechaActual.ToString(formatoFecha));
         }
 
-        private string DescripcionCalculoRecurrenteMensualVariosDiasVariasVeces(EntradaDTO entrada)
+        private string DescripcionCalculoRecurrenteMensualUnDiaVariasVeces(EntradaDTO entrada, String formatoFecha, String formatoHora)
         {
-            if (entrada.Idioma == Idiomas.UK)
-            {
-                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
-                       $"Schedule will be used on day between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                       $"starting on {entrada.FechaActual.ToString("dd/MM/yyyy")}";
-            }
-            else if (entrada.Idioma == Idiomas.US)
-            {
-                return $"Occurs the {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} of every {entrada.ConfiguracionMensual.CantidadMeses} month/s. " +
-                       $"Schedule will be used on day between {entrada.FrecuenciaDiaria.HoraInicio.ToString("hh:mm tt", CultureInfo.InvariantCulture)} " +
-                       $"and {entrada.FrecuenciaDiaria.HoraFin.ToString("hh:mm tt", CultureInfo.InvariantCulture)} every {entrada.FrecuenciaDiaria.TiempoRepeticion} hours " +
-                       $"starting on {entrada.FechaActual.ToString("MM/dd/yyyy")}";
-            }
-            return $"Ocurre el {entrada.ConfiguracionMensual.FrecuenciaDia} {entrada.ConfiguracionMensual.DiaSemana} cada {entrada.ConfiguracionMensual.CantidadMeses} meses. " +
-                   $"El programador se utilizará cada {entrada.FrecuenciaDiaria.TiempoRepeticion} hora/s entre las " +
-                   $"{entrada.FrecuenciaDiaria.HoraInicio.ToString("HH:mm:ss")} y las {entrada.FrecuenciaDiaria.HoraFin.ToString("HH:mm:ss")}";
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryMonthOneDayMultiple");
+
+            return string.Format(descripcionPlantilla,
+                                 entrada.ConfiguracionMensual.DiaMes,
+                                 entrada.ConfiguracionMensual.CantidadMeses,
+                                 entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.HoraFin.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.TiempoRepeticion,
+                                 entrada.FechaActual.ToString(formatoFecha));
+        }
+
+        private string DescripcionCalculoRecurrenteMensualVariosDiasUnaVez(EntradaDTO entrada, String formatoFecha, String formatoHora)
+        {
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryMonthMultipleDaysOnce");
+
+            return string.Format(descripcionPlantilla,
+                                 traductor.TraducirFrecuenciaDia(entrada.ConfiguracionMensual.FrecuenciaDia),
+                                 traductor.TraducirDiaSemana(entrada.ConfiguracionMensual.DiaSemana),
+                                 entrada.ConfiguracionMensual.CantidadMeses,
+                                 entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FechaActual.ToString(formatoFecha));
+        }
+
+        private string DescripcionCalculoRecurrenteMensualVariosDiasVariasVeces(EntradaDTO entrada, String formatoFecha, String formatoHora)
+        {
+            Traductor traductor = ObtenerTraductor(entrada.Idioma);
+            string descripcionPlantilla = traductor.ObtenerTraducciones("OccursEveryMonthMultipleDaysMultiple");
+
+            return string.Format(descripcionPlantilla,
+                                 traductor.TraducirFrecuenciaDia(entrada.ConfiguracionMensual.FrecuenciaDia),
+                                 traductor.TraducirDiaSemana(entrada.ConfiguracionMensual.DiaSemana),
+                                 entrada.ConfiguracionMensual.CantidadMeses,
+                                 entrada.FrecuenciaDiaria.HoraInicio.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.HoraFin.ToString(formatoHora, CultureInfo.InvariantCulture),
+                                 entrada.FrecuenciaDiaria.TiempoRepeticion,
+                                 entrada.FechaActual.ToString(formatoFecha));
         }
     }
 }

@@ -14,9 +14,9 @@ namespace TestProject.Testing
             var calculadora = new CalculosRecurrentes();
             var entrada = new EntradaDTO
             {
-                TipoCalculo = TiposCalculos.Una_vez, 
+                TipoCalculo = TiposCalculos.Una_vez,
                 Ocurrencia = OcurrenciaCalculos.Diaria,
-                FechaActual = new DateTime(2024, 4, 17) 
+                FechaActual = new DateTime(2024, 4, 17)
             };
 
             // Act
@@ -53,9 +53,8 @@ namespace TestProject.Testing
             {
                 Tipo = TiposCalculos.Recurrente,
                 FechaEjecucion = new DateTime(2024, 4, 30),
-                Descripcion = "Ocurre el día 30 cada 4 meses. El programador se utilizará una vez al día a las 09:00:00"
+                Descripcion = "Ocurre el día 30 cada 4 meses. El programador se utilizará una vez al día a las 09:00 a partir del 31/03/2024"
             };
-
 
             // Act
             var salidaResultado = calculadora.CalcularRecurrente(entrada);
@@ -65,6 +64,5 @@ namespace TestProject.Testing
             salidaResultado.FechaEjecucion.Should().Be(salidaEsperada.FechaEjecucion);
             salidaResultado.Descripcion.Should().Be(salidaEsperada.Descripcion);
         }
-
     }
 }

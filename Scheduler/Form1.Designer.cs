@@ -29,15 +29,28 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCalcular = new System.Windows.Forms.Button();
             this.textBoxFechaActual = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.labelDescripcion = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelProximaEjecucion = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBoxDomingo = new System.Windows.Forms.CheckBox();
+            this.checkBoxSabado = new System.Windows.Forms.CheckBox();
+            this.checkBoxViernes = new System.Windows.Forms.CheckBox();
+            this.checkBoxJueves = new System.Windows.Forms.CheckBox();
+            this.checkBoxMiércoles = new System.Windows.Forms.CheckBox();
+            this.checkBoxMartes = new System.Windows.Forms.CheckBox();
+            this.checkBoxLunes = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericSemanas = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxFechaOcurrencia = new System.Windows.Forms.TextBox();
@@ -47,37 +60,26 @@
             this.numericDias = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.numericSemanas = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.checkBoxLunes = new System.Windows.Forms.CheckBox();
-            this.checkBoxMartes = new System.Windows.Forms.CheckBox();
-            this.checkBoxMiércoles = new System.Windows.Forms.CheckBox();
-            this.checkBoxJueves = new System.Windows.Forms.CheckBox();
-            this.checkBoxViernes = new System.Windows.Forms.CheckBox();
-            this.checkBoxSabado = new System.Windows.Forms.CheckBox();
-            this.checkBoxDomingo = new System.Windows.Forms.CheckBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.checkBoxFreDiariaUnaVez = new System.Windows.Forms.CheckBox();
-            this.checkBoxFreDiariaVariasVeces = new System.Windows.Forms.CheckBox();
-            this.dateTimePickerUnaVez = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerHoraInicio = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBoxFrecDiariaTipoFrecuencia = new System.Windows.Forms.ComboBox();
+            this.numericUpDownFrecDiariaTiempoRepeticion = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePickerHoraFinal = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDownFrecDiariaTiempoRepeticion = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxFrecDiariaTipoFrecuencia = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePickerHoraInicio = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerUnaVez = new System.Windows.Forms.DateTimePicker();
+            this.checkBoxFreDiariaVariasVeces = new System.Windows.Forms.CheckBox();
+            this.checkBoxFreDiariaUnaVez = new System.Windows.Forms.CheckBox();
+            this.comboBoxIdioma = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSemanas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDias)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSemanas)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrecDiariaTiempoRepeticion)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +95,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(566, 73);
             this.panel1.TabIndex = 0;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(-1, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(566, 23);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Entrada";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -133,6 +146,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(566, 163);
             this.panel3.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(-1, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(566, 23);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Salida";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelDescripcion
             // 
@@ -188,6 +212,113 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(566, 92);
             this.panel4.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(-1, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(566, 23);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Configuración Semanal";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // checkBoxDomingo
+            // 
+            this.checkBoxDomingo.AutoSize = true;
+            this.checkBoxDomingo.Location = new System.Drawing.Point(453, 65);
+            this.checkBoxDomingo.Name = "checkBoxDomingo";
+            this.checkBoxDomingo.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxDomingo.TabIndex = 16;
+            this.checkBoxDomingo.Text = "Domingo";
+            this.checkBoxDomingo.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSabado
+            // 
+            this.checkBoxSabado.AutoSize = true;
+            this.checkBoxSabado.Location = new System.Drawing.Point(384, 65);
+            this.checkBoxSabado.Name = "checkBoxSabado";
+            this.checkBoxSabado.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxSabado.TabIndex = 15;
+            this.checkBoxSabado.Text = "Sábado";
+            this.checkBoxSabado.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxViernes
+            // 
+            this.checkBoxViernes.AutoSize = true;
+            this.checkBoxViernes.Location = new System.Drawing.Point(317, 65);
+            this.checkBoxViernes.Name = "checkBoxViernes";
+            this.checkBoxViernes.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxViernes.TabIndex = 14;
+            this.checkBoxViernes.Text = "Viernes";
+            this.checkBoxViernes.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxJueves
+            // 
+            this.checkBoxJueves.AutoSize = true;
+            this.checkBoxJueves.Location = new System.Drawing.Point(251, 65);
+            this.checkBoxJueves.Name = "checkBoxJueves";
+            this.checkBoxJueves.Size = new System.Drawing.Size(60, 17);
+            this.checkBoxJueves.TabIndex = 13;
+            this.checkBoxJueves.Text = "Jueves";
+            this.checkBoxJueves.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMiércoles
+            // 
+            this.checkBoxMiércoles.AutoSize = true;
+            this.checkBoxMiércoles.Location = new System.Drawing.Point(169, 65);
+            this.checkBoxMiércoles.Name = "checkBoxMiércoles";
+            this.checkBoxMiércoles.Size = new System.Drawing.Size(71, 17);
+            this.checkBoxMiércoles.TabIndex = 12;
+            this.checkBoxMiércoles.Text = "Miércoles";
+            this.checkBoxMiércoles.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMartes
+            // 
+            this.checkBoxMartes.AutoSize = true;
+            this.checkBoxMartes.Location = new System.Drawing.Point(105, 65);
+            this.checkBoxMartes.Name = "checkBoxMartes";
+            this.checkBoxMartes.Size = new System.Drawing.Size(58, 17);
+            this.checkBoxMartes.TabIndex = 11;
+            this.checkBoxMartes.Text = "Martes";
+            this.checkBoxMartes.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxLunes
+            // 
+            this.checkBoxLunes.AutoSize = true;
+            this.checkBoxLunes.Location = new System.Drawing.Point(38, 65);
+            this.checkBoxLunes.Name = "checkBoxLunes";
+            this.checkBoxLunes.Size = new System.Drawing.Size(55, 17);
+            this.checkBoxLunes.TabIndex = 10;
+            this.checkBoxLunes.Text = "Lunes";
+            this.checkBoxLunes.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(248, 39);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "semana(s)";
+            // 
+            // numericSemanas
+            // 
+            this.numericSemanas.Location = new System.Drawing.Point(105, 37);
+            this.numericSemanas.Name = "numericSemanas";
+            this.numericSemanas.Size = new System.Drawing.Size(121, 20);
+            this.numericSemanas.TabIndex = 8;
+            this.numericSemanas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Cada";
             // 
             // label2
             // 
@@ -261,6 +392,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.comboBoxIdioma);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.numericDias);
@@ -275,101 +408,16 @@
             this.panel2.Size = new System.Drawing.Size(566, 125);
             this.panel2.TabIndex = 1;
             // 
-            // label5
+            // label15
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Cada";
-            // 
-            // numericSemanas
-            // 
-            this.numericSemanas.Location = new System.Drawing.Point(105, 37);
-            this.numericSemanas.Name = "numericSemanas";
-            this.numericSemanas.Size = new System.Drawing.Size(121, 20);
-            this.numericSemanas.TabIndex = 8;
-            this.numericSemanas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(248, 39);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "semana(s)";
-            // 
-            // checkBoxLunes
-            // 
-            this.checkBoxLunes.AutoSize = true;
-            this.checkBoxLunes.Location = new System.Drawing.Point(38, 65);
-            this.checkBoxLunes.Name = "checkBoxLunes";
-            this.checkBoxLunes.Size = new System.Drawing.Size(55, 17);
-            this.checkBoxLunes.TabIndex = 10;
-            this.checkBoxLunes.Text = "Lunes";
-            this.checkBoxLunes.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxMartes
-            // 
-            this.checkBoxMartes.AutoSize = true;
-            this.checkBoxMartes.Location = new System.Drawing.Point(105, 65);
-            this.checkBoxMartes.Name = "checkBoxMartes";
-            this.checkBoxMartes.Size = new System.Drawing.Size(58, 17);
-            this.checkBoxMartes.TabIndex = 11;
-            this.checkBoxMartes.Text = "Martes";
-            this.checkBoxMartes.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxMiércoles
-            // 
-            this.checkBoxMiércoles.AutoSize = true;
-            this.checkBoxMiércoles.Location = new System.Drawing.Point(169, 65);
-            this.checkBoxMiércoles.Name = "checkBoxMiércoles";
-            this.checkBoxMiércoles.Size = new System.Drawing.Size(71, 17);
-            this.checkBoxMiércoles.TabIndex = 12;
-            this.checkBoxMiércoles.Text = "Miércoles";
-            this.checkBoxMiércoles.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxJueves
-            // 
-            this.checkBoxJueves.AutoSize = true;
-            this.checkBoxJueves.Location = new System.Drawing.Point(251, 65);
-            this.checkBoxJueves.Name = "checkBoxJueves";
-            this.checkBoxJueves.Size = new System.Drawing.Size(60, 17);
-            this.checkBoxJueves.TabIndex = 13;
-            this.checkBoxJueves.Text = "Jueves";
-            this.checkBoxJueves.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxViernes
-            // 
-            this.checkBoxViernes.AutoSize = true;
-            this.checkBoxViernes.Location = new System.Drawing.Point(317, 65);
-            this.checkBoxViernes.Name = "checkBoxViernes";
-            this.checkBoxViernes.Size = new System.Drawing.Size(61, 17);
-            this.checkBoxViernes.TabIndex = 14;
-            this.checkBoxViernes.Text = "Viernes";
-            this.checkBoxViernes.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSabado
-            // 
-            this.checkBoxSabado.AutoSize = true;
-            this.checkBoxSabado.Location = new System.Drawing.Point(384, 65);
-            this.checkBoxSabado.Name = "checkBoxSabado";
-            this.checkBoxSabado.Size = new System.Drawing.Size(63, 17);
-            this.checkBoxSabado.TabIndex = 15;
-            this.checkBoxSabado.Text = "Sábado";
-            this.checkBoxSabado.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxDomingo
-            // 
-            this.checkBoxDomingo.AutoSize = true;
-            this.checkBoxDomingo.Location = new System.Drawing.Point(453, 65);
-            this.checkBoxDomingo.Name = "checkBoxDomingo";
-            this.checkBoxDomingo.Size = new System.Drawing.Size(68, 17);
-            this.checkBoxDomingo.TabIndex = 16;
-            this.checkBoxDomingo.Text = "Domingo";
-            this.checkBoxDomingo.UseVisualStyleBackColor = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(-1, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(566, 23);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Configuración";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel5
             // 
@@ -389,54 +437,36 @@
             this.panel5.Size = new System.Drawing.Size(566, 114);
             this.panel5.TabIndex = 3;
             // 
-            // checkBoxFreDiariaUnaVez
+            // label13
             // 
-            this.checkBoxFreDiariaUnaVez.AutoSize = true;
-            this.checkBoxFreDiariaUnaVez.Location = new System.Drawing.Point(44, 33);
-            this.checkBoxFreDiariaUnaVez.Name = "checkBoxFreDiariaUnaVez";
-            this.checkBoxFreDiariaUnaVez.Size = new System.Drawing.Size(124, 17);
-            this.checkBoxFreDiariaUnaVez.TabIndex = 0;
-            this.checkBoxFreDiariaUnaVez.Text = "Ocurre una vez a las";
-            this.checkBoxFreDiariaUnaVez.UseVisualStyleBackColor = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(-1, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(566, 23);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Frecuencia Diaria";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // checkBoxFreDiariaVariasVeces
+            // comboBoxFrecDiariaTipoFrecuencia
             // 
-            this.checkBoxFreDiariaVariasVeces.AutoSize = true;
-            this.checkBoxFreDiariaVariasVeces.Location = new System.Drawing.Point(44, 56);
-            this.checkBoxFreDiariaVariasVeces.Name = "checkBoxFreDiariaVariasVeces";
-            this.checkBoxFreDiariaVariasVeces.Size = new System.Drawing.Size(85, 17);
-            this.checkBoxFreDiariaVariasVeces.TabIndex = 1;
-            this.checkBoxFreDiariaVariasVeces.Text = "Ocurre cada";
-            this.checkBoxFreDiariaVariasVeces.UseVisualStyleBackColor = true;
+            this.comboBoxFrecDiariaTipoFrecuencia.FormattingEnabled = true;
+            this.comboBoxFrecDiariaTipoFrecuencia.Items.AddRange(new object[] {
+            "Horas",
+            "Minutos",
+            "Segundos"});
+            this.comboBoxFrecDiariaTipoFrecuencia.Location = new System.Drawing.Point(310, 55);
+            this.comboBoxFrecDiariaTipoFrecuencia.Name = "comboBoxFrecDiariaTipoFrecuencia";
+            this.comboBoxFrecDiariaTipoFrecuencia.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxFrecDiariaTipoFrecuencia.TabIndex = 9;
             // 
-            // dateTimePickerUnaVez
+            // numericUpDownFrecDiariaTiempoRepeticion
             // 
-            this.dateTimePickerUnaVez.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerUnaVez.Location = new System.Drawing.Point(244, 30);
-            this.dateTimePickerUnaVez.Name = "dateTimePickerUnaVez";
-            this.dateTimePickerUnaVez.ShowUpDown = true;
-            this.dateTimePickerUnaVez.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePickerUnaVez.TabIndex = 2;
-            this.dateTimePickerUnaVez.Value = new System.DateTime(2024, 4, 18, 0, 0, 0, 0);
-            // 
-            // dateTimePickerHoraInicio
-            // 
-            this.dateTimePickerHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHoraInicio.Location = new System.Drawing.Point(121, 79);
-            this.dateTimePickerHoraInicio.Name = "dateTimePickerHoraInicio";
-            this.dateTimePickerHoraInicio.ShowUpDown = true;
-            this.dateTimePickerHoraInicio.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePickerHoraInicio.TabIndex = 3;
-            this.dateTimePickerHoraInicio.Value = new System.DateTime(2024, 4, 18, 0, 0, 0, 0);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(43, 85);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Empieza a las";
+            this.numericUpDownFrecDiariaTiempoRepeticion.Location = new System.Drawing.Point(244, 55);
+            this.numericUpDownFrecDiariaTiempoRepeticion.Name = "numericUpDownFrecDiariaTiempoRepeticion";
+            this.numericUpDownFrecDiariaTiempoRepeticion.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDownFrecDiariaTiempoRepeticion.TabIndex = 8;
+            this.numericUpDownFrecDiariaTiempoRepeticion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label11
             // 
@@ -457,80 +487,71 @@
             this.dateTimePickerHoraFinal.TabIndex = 5;
             this.dateTimePickerHoraFinal.Value = new System.DateTime(2024, 4, 18, 0, 0, 0, 0);
             // 
-            // numericUpDownFrecDiariaTiempoRepeticion
+            // label10
             // 
-            this.numericUpDownFrecDiariaTiempoRepeticion.Location = new System.Drawing.Point(244, 55);
-            this.numericUpDownFrecDiariaTiempoRepeticion.Name = "numericUpDownFrecDiariaTiempoRepeticion";
-            this.numericUpDownFrecDiariaTiempoRepeticion.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDownFrecDiariaTiempoRepeticion.TabIndex = 8;
-            this.numericUpDownFrecDiariaTiempoRepeticion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(43, 85);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Empieza a las";
             // 
-            // comboBoxFrecDiariaTipoFrecuencia
+            // dateTimePickerHoraInicio
             // 
-            this.comboBoxFrecDiariaTipoFrecuencia.FormattingEnabled = true;
-            this.comboBoxFrecDiariaTipoFrecuencia.Items.AddRange(new object[] {
-            "Horas",
-            "Minutos",
-            "Segundos"});
-            this.comboBoxFrecDiariaTipoFrecuencia.Location = new System.Drawing.Point(310, 55);
-            this.comboBoxFrecDiariaTipoFrecuencia.Name = "comboBoxFrecDiariaTipoFrecuencia";
-            this.comboBoxFrecDiariaTipoFrecuencia.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxFrecDiariaTipoFrecuencia.TabIndex = 9;
+            this.dateTimePickerHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerHoraInicio.Location = new System.Drawing.Point(121, 79);
+            this.dateTimePickerHoraInicio.Name = "dateTimePickerHoraInicio";
+            this.dateTimePickerHoraInicio.ShowUpDown = true;
+            this.dateTimePickerHoraInicio.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerHoraInicio.TabIndex = 3;
+            this.dateTimePickerHoraInicio.Value = new System.DateTime(2024, 4, 18, 0, 0, 0, 0);
             // 
-            // label12
+            // dateTimePickerUnaVez
             // 
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(-1, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(566, 23);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Salida";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dateTimePickerUnaVez.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerUnaVez.Location = new System.Drawing.Point(244, 30);
+            this.dateTimePickerUnaVez.Name = "dateTimePickerUnaVez";
+            this.dateTimePickerUnaVez.ShowUpDown = true;
+            this.dateTimePickerUnaVez.Size = new System.Drawing.Size(166, 20);
+            this.dateTimePickerUnaVez.TabIndex = 2;
+            this.dateTimePickerUnaVez.Value = new System.DateTime(2024, 4, 18, 0, 0, 0, 0);
             // 
-            // label13
+            // checkBoxFreDiariaVariasVeces
             // 
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(-1, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(566, 23);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Frecuencia Diaria";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkBoxFreDiariaVariasVeces.AutoSize = true;
+            this.checkBoxFreDiariaVariasVeces.Location = new System.Drawing.Point(44, 56);
+            this.checkBoxFreDiariaVariasVeces.Name = "checkBoxFreDiariaVariasVeces";
+            this.checkBoxFreDiariaVariasVeces.Size = new System.Drawing.Size(85, 17);
+            this.checkBoxFreDiariaVariasVeces.TabIndex = 1;
+            this.checkBoxFreDiariaVariasVeces.Text = "Ocurre cada";
+            this.checkBoxFreDiariaVariasVeces.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // checkBoxFreDiariaUnaVez
             // 
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(-1, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(566, 23);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Configuración Semanal";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkBoxFreDiariaUnaVez.AutoSize = true;
+            this.checkBoxFreDiariaUnaVez.Location = new System.Drawing.Point(44, 33);
+            this.checkBoxFreDiariaUnaVez.Name = "checkBoxFreDiariaUnaVez";
+            this.checkBoxFreDiariaUnaVez.Size = new System.Drawing.Size(124, 17);
+            this.checkBoxFreDiariaUnaVez.TabIndex = 0;
+            this.checkBoxFreDiariaUnaVez.Text = "Ocurre una vez a las";
+            this.checkBoxFreDiariaUnaVez.UseVisualStyleBackColor = true;
             // 
-            // label15
+            // comboBoxIdioma
             // 
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(-1, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(566, 23);
-            this.label15.TabIndex = 18;
-            this.label15.Text = "Configuración";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.comboBoxIdioma.FormattingEnabled = true;
+            this.comboBoxIdioma.Location = new System.Drawing.Point(453, 35);
+            this.comboBoxIdioma.Name = "comboBoxIdioma";
+            this.comboBoxIdioma.Size = new System.Drawing.Size(94, 21);
+            this.comboBoxIdioma.TabIndex = 19;
             // 
-            // label16
+            // label17
             // 
-            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(-1, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(566, 23);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "Entrada";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(409, 38);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(38, 13);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "Idioma";
             // 
             // Form1
             // 
@@ -552,10 +573,10 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSemanas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDias)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSemanas)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrecDiariaTiempoRepeticion)).EndInit();
@@ -609,6 +630,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBoxIdioma;
     }
 }
 
